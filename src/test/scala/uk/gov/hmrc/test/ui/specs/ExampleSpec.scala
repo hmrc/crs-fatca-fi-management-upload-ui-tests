@@ -19,13 +19,17 @@ package uk.gov.hmrc.test.ui.specs
 import uk.gov.hmrc.test.ui.pages.CheckYourVATHomePage.provideVATPeriod
 import uk.gov.hmrc.test.ui.pages.CheckYourVATResult.{result, useSetVATFlatRate, useUniqueVATFlatRate}
 import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.specs.tags.ZapTests
+import uk.gov.hmrc.test.ui.specs.tags._
 
 class ExampleSpec extends BaseSpec {
 
   Feature("Examples") {
 
-    Scenario("User is a limited cost business that pays annually and should use the 16.5% flat rate", ZapTests) {
+    Scenario(
+      "User is a limited cost business that pays annually and should use the 16.5% flat rate",
+      FiManagementTests,
+      ZapTests
+    ) {
       //Remove ZapTests tag if not required
 
       Given("I am on the Check your VAT flat rate service")
@@ -41,7 +45,11 @@ class ExampleSpec extends BaseSpec {
       result should be(useSetVATFlatRate)
     }
 
-    Scenario("User is not a limited cost business that pays annually and should use the VAT flat rate") {
+    Scenario(
+      "User is not a limited cost business that pays annually and should use the VAT flat rate",
+      FiManagementTests,
+      ZapTests
+    ) {
       Given("I am on the Check your VAT flat rate service")
       CheckYourVATHomePage.loadPage
 
@@ -55,7 +63,11 @@ class ExampleSpec extends BaseSpec {
       result should be(useUniqueVATFlatRate)
     }
 
-    Scenario("User is a limited cost business that pays quarterly and should use the 16.5% flat rate") {
+    Scenario(
+      "User is a limited cost business that pays quarterly and should use the 16.5% flat rate",
+      FiManagementTests,
+      ZapTests
+    ) {
       Given("I am on the Check your VAT flat rate service")
       CheckYourVATHomePage.loadPage
 
@@ -69,7 +81,11 @@ class ExampleSpec extends BaseSpec {
       result should be(useSetVATFlatRate)
     }
 
-    Scenario("User is not a limited cost business that pays quarterly and should use the VAT flat rate") {
+    Scenario(
+      "User is not a limited cost business that pays quarterly and should use the VAT flat rate",
+      FiManagementTests,
+      ZapTests
+    ) {
       Given("I am on the Check your VAT flat rate service")
       CheckYourVATHomePage.loadPage
 
