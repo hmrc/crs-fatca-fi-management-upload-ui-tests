@@ -14,13 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.remote.RemoteWebDriver
-import uk.gov.hmrc.selenium.webdriver.Driver
+import org.openqa.selenium.By
 
-trait BrowserDriver {
+object FiNamePage extends BasePage {
 
-  implicit def driver: RemoteWebDriver = Driver.instance
+  override val pageUrl: String = baseUrl + "/name"
 
+  val FiNameID: By = By.id("value")
+
+  def enterFiName(): Unit = {
+    onPage(pageUrl)
+    sendTextById(FiNameID, "Financial Institution One")
+    submitPageById()
+  }
 }

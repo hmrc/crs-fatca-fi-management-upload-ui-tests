@@ -18,18 +18,15 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object CostOfGoods extends BasePage {
+object FiUtrPage extends BasePage {
 
-  val costOfGoodsInput = "costOfGoods"
+  override val pageUrl: String = baseUrl + "/utr"
 
-  def provideCostOfGoodsAmount(amount: String): this.type = {
-    driver.findElement(By.id(costOfGoodsInput)).clear()
-    driver.findElement(By.id(costOfGoodsInput)).sendKeys(amount)
-    this
-  }
+  val FiUtrID: By = By.id("value")
 
-  def submitVATInformation: CheckYourVATResult.type = {
-    submitPage()
-    CheckYourVATResult
+  def enterFiUtr(): Unit = {
+    onPage(pageUrl)
+    sendTextById(FiUtrID, randomisedUtr)
+    submitPageById()
   }
 }

@@ -17,25 +17,22 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-object CheckYourVATHomePage extends BasePage {
-  val url: String = TestConfiguration.url("example-frontend") + "/vat-return-period"
+object FiHaveUtrPage extends BasePage {
 
-  val annuallyRadioButton  = "vatReturnPeriod"
-  val quarterlyRadioButton = "vatReturnPeriod-2"
+  override val pageUrl: String = baseUrl + "/have-utr"
+  val haveUtrYesId: By         = By.id("value")
+  val haveUtrNoId: By          = By.id("value-no")
 
-  def loadPage: this.type = {
-    driver.navigate().to(url)
-    this
+  def fiHhaveUtrYes(): Unit = {
+    onPage(pageUrl)
+    clickOnById(haveUtrYesId)
+    submitPageById()
   }
 
-  def provideVATPeriod(period: String): Turnover.type = {
-    period match {
-      case "Annually" => driver.findElement(By.id(annuallyRadioButton)).click()
-      case _          => driver.findElement(By.id(quarterlyRadioButton)).click()
-    }
-    submitPage()
-    Turnover
+  def fiHaveUtrNo(): Unit = {
+    onPage(pageUrl)
+    clickOnById(haveUtrNoId)
+    submitPageById()
   }
 }

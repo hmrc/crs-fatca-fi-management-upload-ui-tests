@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.specs.tags
 
-import org.openqa.selenium.By
+import org.scalatest.Tag
 
-object CheckYourVATResult extends BasePage {
-
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
-
-  def result: String =
-    driver.findElement(By.id(resultOutcome)).getText
-}
+object FiManagementTests extends Tag("FiManagementTests")
