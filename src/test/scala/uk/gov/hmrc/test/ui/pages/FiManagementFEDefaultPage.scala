@@ -16,14 +16,12 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+object FiManagementFEDefaultPage extends BasePage {
+  override val pageUrl: String = baseUrl
 
-object CheckYourVATResult extends BasePage {
-
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
-
-  def result: String =
-    driver.findElement(By.id(resultOutcome)).getText
+  def checkPage(): Unit          =
+    onPage(pageUrl)
+  //TODO temporarily added this method in to navigate to first page in the journey that exists - should be removed later
+  def navigateToNamePage(): Unit =
+    navigateTo(FiNamePage.pageUrl)
 }
