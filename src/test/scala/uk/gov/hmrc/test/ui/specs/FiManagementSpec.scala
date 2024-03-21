@@ -39,7 +39,7 @@ class FiManagementSpec extends BaseSpec {
       FiNamePage.enterFiName()
       FiHaveUtrPage.fiHhaveUtrYes()
       FiUtrPage.enterFiUtr()
-      FiFatcaReportsPage.fiFatcaReportYes()
+      FiFatcaReportsPage.fiFatcaReportsYes()
 
       // TODO Added last check to confirm submission of UTR page - should be removed later
       FiManagementFEDefaultPage.checkPage()
