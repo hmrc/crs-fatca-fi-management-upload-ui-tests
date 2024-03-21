@@ -32,13 +32,15 @@ class FiManagementSpec extends BaseSpec {
       Given("The user logs in as an individual")
       AuthLoginPage.loginAsBasic()
 
-      When("The user hits the landing page then jumps to the first page built in the service")
+      When("The user hits the landing mpage then jumps to the first page built in the service")
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.navigateToNamePage()
       // TODO Temporarily added the following step to navigate to first page in the journey that exists - should be removed later
       FiNamePage.enterFiName()
       FiHaveUtrPage.fiHhaveUtrYes()
       FiUtrPage.enterFiUtr()
+      FiFatcaReportsPage.fiFatcaReportYes()
+
       // TODO Added last check to confirm submission of UTR page - should be removed later
       FiManagementFEDefaultPage.checkPage()
     }
