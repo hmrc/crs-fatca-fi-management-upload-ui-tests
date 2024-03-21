@@ -16,12 +16,11 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object FiManagementFEDefaultPage extends BasePage {
-  override val pageUrl: String = baseUrl
+object FiGiinPage extends BasePage {
+  //TODO change URl when actual page is developed
+  override val pageUrl: String = baseUrl + "/whatIsGIIN"
 
   def checkPage(): Unit          =
     onPage(pageUrl)
-  //TODO temporarily added this method in to navigate to first page in the journey that exists - should be removed later
-  def navigateToNamePage(): Unit =
-    navigateTo(FiNamePage.pageUrl)
+
 }
