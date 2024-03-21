@@ -16,13 +16,23 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object FiManagementFEDefaultPage extends BasePage {
-  //TODO change it with ongoing journey changes
-  override val pageUrl: String = baseUrl + "/whatIsGIIN"
+import org.openqa.selenium.By
 
-  def checkPage(): Unit          =
+object FiFatcaReportsPage extends BasePage {
+
+  override val pageUrl: String = baseUrl + "/fatca-reports"
+  val haveUtrYesId: By         = By.id("value")
+  val haveUtrNoId: By          = By.id("value-no")
+
+  def fiFatcaReportsYes(): Unit = {
     onPage(pageUrl)
-  //TODO temporarily added this method in to navigate to first page in the journey that exists - should be removed later
-  def navigateToNamePage(): Unit =
-    navigateTo(FiNamePage.pageUrl)
+    clickOnById(haveUtrYesId)
+    submitPageById()
+  }
+
+  def fiFatcaReportsNo(): Unit = {
+    onPage(pageUrl)
+    clickOnById(haveUtrNoId)
+    submitPageById()
+  }
 }
