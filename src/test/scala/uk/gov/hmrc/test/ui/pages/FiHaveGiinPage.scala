@@ -16,11 +16,26 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object FiGiinPage extends BasePage {
-  //TODO change URl when actual page is developed
-  override val pageUrl: String = baseUrl + "/whatIsGIIN"
+import org.openqa.selenium.By
+
+object FiHaveGiinPage extends BasePage {
+
+  override val pageUrl: String = baseUrl + "/have-giin"
+  val haveGiinYesId: By         = By.id("value")
+  val haveGiinNoId: By          = By.id("value-no")
 
   def checkPage(): Unit =
     onPage(pageUrl)
 
+  def fiHaveGiinYes(): Unit = {
+    onPage(pageUrl)
+    clickOnById(haveGiinYesId)
+    submitPageById()
+  }
+
+  def fiHaveGiinNo(): Unit = {
+    onPage(pageUrl)
+    clickOnById(haveGiinNoId)
+    submitPageById()
+  }
 }
