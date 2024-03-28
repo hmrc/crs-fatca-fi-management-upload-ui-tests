@@ -41,9 +41,10 @@ class FiManagementSpec extends BaseSpec {
       FiUtrPage.enterFiUtr()
       FiFatcaReportsPage.fiFatcaReportsNo()
       FiHaveGiinPage.fiHaveGiinYes()
+      FiGiinPage.enterGiin()
 
       // TODO Added last check to confirm submission of Report page - should be removed later
-      FiGiinPage.checkPage()
+      FiManagementFEDefaultPage.checkPage()
     }
   }
 }

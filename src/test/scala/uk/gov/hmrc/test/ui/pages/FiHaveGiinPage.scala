@@ -21,8 +21,8 @@ import org.openqa.selenium.By
 object FiHaveGiinPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/have-giin"
-  val haveGiinYesId: By         = By.id("value")
-  val haveGiinNoId: By          = By.id("value-no")
+  val haveGiinYesId: By        = By.id("value")
+  val haveGiinNoId: By         = By.id("value-no")
 
   def checkPage(): Unit =
     onPage(pageUrl)
