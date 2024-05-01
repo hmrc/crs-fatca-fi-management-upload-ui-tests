@@ -42,9 +42,10 @@ class FiManagementSpec extends BaseSpec {
       FiFatcaReportsPage.fiFatcaReportsNo()
       FiHaveGiinPage.fiHaveGiinYes()
       FiGiinPage.enterGiin()
+      FiWhereIsFiBased.basedUKYes()
 
       // TODO Added last check to confirm submission of Report page - should be removed later
-      FiManagementFEDefaultPage.checkPage()
+      FiUKPostcode.checkPage()
     }
   }
 }
