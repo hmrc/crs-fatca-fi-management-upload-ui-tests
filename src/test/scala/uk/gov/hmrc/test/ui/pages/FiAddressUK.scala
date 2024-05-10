@@ -18,25 +18,24 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object FiWhereIsFiBased extends BasePage {
+object FiAddressUK extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/where-is-fi-based"
-  val basedUKYesId: By         = By.id("value")
-  val basedUKNoId: By          = By.id("value-no")
+  override val pageUrl: String = baseUrl + "/address-uk"
+  val addressLine1: By         = By.id("addressLine1")
+  val addressLine2: By         = By.id("addressLine2")
+  val city: By         = By.id("addressLine3")
+  val county: By         = By.id("addressLine4")
+  val postCode: By         = By.id("postCode")
+  val country: By         = By.id("country")
 
-  def checkPage(): Unit =
+  def enterAddressManually(): Unit = {
     onPage(pageUrl)
-
-  def basedUKYes(): Unit = {
-    onPage(pageUrl)
-    clickOnById(basedUKYesId)
+    sendTextById(addressLine1, "addressLine1")
+    sendTextById(addressLine2, "addressLine2")
+    sendTextById(city, "Edinburgh")
+    sendTextById(county, "Midlothian")
+    sendTextById(postCode, "EH14 1TT")
+    selectDropdownById(country).selectByVisibleText("Jersey")
     submitPageById()
   }
-
-  def basedUKNo(): Unit = {
-    onPage(pageUrl)
-    clickOnById(basedUKNoId)
-    submitPageById()
-  }
-
 }

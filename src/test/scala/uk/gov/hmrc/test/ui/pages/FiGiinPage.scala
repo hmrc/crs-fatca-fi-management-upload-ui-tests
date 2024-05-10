@@ -17,7 +17,6 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.pages.FiUtrPage.{FiUtrID, onPage, pageUrl, randomisedUtr, sendTextById, submitPageById}
 
 object FiGiinPage extends BasePage {
   //TODO change URl when actual page is developed
@@ -27,7 +26,7 @@ object FiGiinPage extends BasePage {
 
   def enterGiin(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiUtrID, "98096B.00000.LE.350")
+    sendTextById(giin, "98096B.00000.LE.350")
     submitPageById()
   }
 

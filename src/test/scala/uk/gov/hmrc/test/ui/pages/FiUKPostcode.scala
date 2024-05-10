@@ -17,13 +17,17 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.pages.FiManagementFEDefaultPage.{baseUrl, navigateTo, onPage}
 
 object FiUKPostcode extends BasePage {
 
   override val pageUrl: String = baseUrl + "/uk-postcode"
+  val manualAddressLink: By    = By.id("manualAddressLink")
 
   def checkPage(): Unit =
     onPage(pageUrl)
 
+  def clickOnManualAddressLink(): Unit = {
+    onPage(pageUrl)
+    clickOnById(manualAddressLink)
+  }
 }

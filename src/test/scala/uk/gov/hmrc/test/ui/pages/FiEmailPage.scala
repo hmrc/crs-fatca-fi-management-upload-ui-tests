@@ -18,25 +18,15 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object FiWhereIsFiBased extends BasePage {
+object FiEmailPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/where-is-fi-based"
-  val basedUKYesId: By         = By.id("value")
-  val basedUKNoId: By          = By.id("value-no")
+  override val pageUrl: String = baseUrl + "/email"
 
-  def checkPage(): Unit =
+  val FiEmailID: By = By.id("value")
+
+  def enterFiEmailAddress(): Unit = {
     onPage(pageUrl)
-
-  def basedUKYes(): Unit = {
-    onPage(pageUrl)
-    clickOnById(basedUKYesId)
+    sendTextById(FiEmailID, "test@example.com")
     submitPageById()
   }
-
-  def basedUKNo(): Unit = {
-    onPage(pageUrl)
-    clickOnById(basedUKNoId)
-    submitPageById()
-  }
-
 }

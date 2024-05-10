@@ -21,21 +21,15 @@ import uk.gov.hmrc.test.ui.specs.tags._
 
 class FiManagementSpec extends BaseSpec {
 
-  Feature("Getting into the service") {
+  Feature("Add Fi Journey (Standard FI)") {
 
-    Scenario(
-      "Individual user enters service",
-      FiManagementTests,
-      ZapTests
-    ) {
-
+    Scenario("Individual user enters service", FiManagementTests, ZapTests) {
       Given("The user logs in as an individual")
       AuthLoginPage.loginAsBasic()
 
       When("The user hits the landing page then jumps to the first page built in the service")
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.navigateToNamePage()
-      // TODO Temporarily added the following step to navigate to first page in the journey that exists - should be removed later
       FiNamePage.enterFiName()
       FiHaveUtrPage.fiHhaveUtrYes()
       FiUtrPage.enterFiUtr()
@@ -43,9 +37,19 @@ class FiManagementSpec extends BaseSpec {
       FiHaveGiinPage.fiHaveGiinYes()
       FiGiinPage.enterGiin()
       FiWhereIsFiBased.basedUKYes()
-
-      // TODO Added last check to confirm submission of Report page - should be removed later
-      FiUKPostcode.checkPage()
+      FiUKPostcode.clickOnManualAddressLink()
+      FiAddressUK.enterAddressManually()
+      FiContactNamePage.enterFiContactName()
+      FiEmailPage.enterFiEmailAddress()
+      FiHavePhonePage.fiHavePhoneYes()
+      FiPhonePage.enterFiPhone()
+      FiHaveSecondContactPage.fiHaveSecondContactYes()
+      FiSecondContactNamePage.enterFiSecondContactName()
+      FiSecondContactEmailPage.enterFiSecondContactEmailAddress()
+      FiSecondContactHavePhonePage.fiSecondContactHavePhoneYes()
+      FiSecondContactPhonePage.enterFiSecondContactPhone()
+      Then("The user hits the landing page then jumps to the first page built in the service")
+      FiCheckYourAnswersPage.checkPage()
     }
   }
 }
