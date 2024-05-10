@@ -27,6 +27,7 @@ object FiAddressUK extends BasePage {
   val county: By               = By.id("addressLine4")
   val postCode: By             = By.id("postCode")
   val country: By              = By.id("country")
+  val countryOption: By        = By.id("country__option--0")
 
   def enterAddressManually(): Unit = {
     onPage(pageUrl)
@@ -35,7 +36,9 @@ object FiAddressUK extends BasePage {
     sendTextById(city, "Edinburgh")
     sendTextById(county, "Midlothian")
     sendTextById(postCode, "EH14 1TT")
-    selectDropdownById(country).selectByVisibleText("Jersey")
+    driver.findElement(country).click()
+    driver.findElement(country).sendKeys("Jersey")
+    driver.findElement(countryOption).click()
     submitPageById()
   }
 }
