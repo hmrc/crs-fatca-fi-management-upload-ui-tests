@@ -23,10 +23,10 @@ object FiAddressUK extends BasePage {
   override val pageUrl: String = baseUrl + "/address-uk"
   val addressLine1: By         = By.id("addressLine1")
   val addressLine2: By         = By.id("addressLine2")
-  val city: By         = By.id("addressLine3")
-  val county: By         = By.id("addressLine4")
-  val postCode: By         = By.id("postCode")
-  val country: By         = By.id("country")
+  val city: By                 = By.id("addressLine3")
+  val county: By               = By.id("addressLine4")
+  val postCode: By             = By.id("postCode")
+  val country: By              = By.id("country")
 
   def enterAddressManually(): Unit = {
     onPage(pageUrl)

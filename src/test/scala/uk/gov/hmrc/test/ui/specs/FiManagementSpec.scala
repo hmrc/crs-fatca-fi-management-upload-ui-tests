@@ -21,13 +21,12 @@ import uk.gov.hmrc.test.ui.specs.tags._
 
 class FiManagementSpec extends BaseSpec {
 
-  Feature("Add Fi Journey (Standard FI)") {
+  Feature("Add Fi Journey") {
 
-    Scenario("Individual user enters service", FiManagementTests, ZapTests) {
+    Scenario("Add Fi Journey (Standard FI)", FiManagementTests, ZapTests) {
       Given("The user logs in as an individual")
       AuthLoginPage.loginAsBasic()
-
-      When("The user hits the landing page then jumps to the first page built in the service")
+      When("The user hits the landing page and continues standard journey")
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.navigateToNamePage()
       FiNamePage.enterFiName()
@@ -48,8 +47,9 @@ class FiManagementSpec extends BaseSpec {
       FiSecondContactEmailPage.enterFiSecondContactEmailAddress()
       FiSecondContactHavePhonePage.fiSecondContactHavePhoneYes()
       FiSecondContactPhonePage.enterFiSecondContactPhone()
-      Then("The user hits the landing page then jumps to the first page built in the service")
+      Then("The user completes journey and lands on check your answer page")
       FiCheckYourAnswersPage.checkPage()
+      //TODO check your answer page is not developed yet
     }
   }
 }

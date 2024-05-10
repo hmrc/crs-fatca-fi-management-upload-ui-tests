@@ -20,8 +20,8 @@ import org.openqa.selenium.By
 
 object FiSecondContactHavePhonePage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/second-contact-have-phone"
-  val haveSecondContactPhoneYesId: By        = By.id("value")
+  override val pageUrl: String        = baseUrl + "/second-contact-have-phone"
+  val haveSecondContactPhoneYesId: By = By.id("value")
 
   def fiSecondContactHavePhoneYes(): Unit = {
     onPage(pageUrl)
