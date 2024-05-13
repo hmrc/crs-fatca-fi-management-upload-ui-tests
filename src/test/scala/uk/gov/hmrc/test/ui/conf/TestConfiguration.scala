@@ -24,6 +24,15 @@ object TestConfiguration {
   val defaultConfig: Config = config.getConfig("local")
   val envConfig: Config     = config.getConfig(env).withFallback(defaultConfig)
 
+  val enrolmentConfig: EnrolmentConfig = {
+    val key        = envConfig.getString("enrolment.key")
+    val identifier = envConfig.getString("enrolment.identifier")
+
+    EnrolmentConfig(
+      individual = Enrolment(key, identifier, envConfig.getString("enrolment.individualId"))
+    )
+  }
+
   def url(service: String): String = {
     val host = env match {
       case "local" => s"$environmentHost:${servicePort(service)}"
