@@ -17,7 +17,7 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
+import uk.gov.hmrc.test.ui.conf.{Enrolment, TestConfiguration}
 
 object AuthLoginPage extends BasePage {
   override val pageUrl: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
@@ -27,6 +27,11 @@ object AuthLoginPage extends BasePage {
   private val redirectionUrlById: By = By.id("redirectionUrl")
   private val affinityGroupById: By  = By.id("affinityGroupSelect")
   private val authSubmitById: By     = By.id("submit-top")
+
+  private val enrolment: Enrolment        = TestConfiguration.enrolmentConfig.individual
+  private val enrolmentKeyById: By        = By.id("enrolment[0].name")
+  private val enrolmentIdentifierById: By = By.id("input-0-0-name")
+  private val enrolmentValueById: By      = By.id("input-0-0-value")
 
   def loadPage(): this.type = {
     navigateTo(pageUrl)
@@ -40,6 +45,9 @@ object AuthLoginPage extends BasePage {
   def loginAsBasic(): FiManagementFEDefaultPage.type = {
     loadPage()
     sendTextById(redirectionUrlById, redirectUrl)
+    sendTextById(enrolmentKeyById, enrolment.key)
+    sendTextById(enrolmentIdentifierById, enrolment.identifier)
+    sendTextById(enrolmentValueById, enrolment.value)
     clickOnById(authSubmitById)
     FiManagementFEDefaultPage
   }

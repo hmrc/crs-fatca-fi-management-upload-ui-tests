@@ -20,17 +20,6 @@ Starting a large group of services in a profile can overload the cpu of a machin
 If this happens use one, or a combination of the following arguments: `--delay-seconds 5` to include a delay of 5
 seconds between sm2 starting each service and `--workers 1` to force sm2 to only start one service at a time.
 
-### Docker Selenium Grid
-
-Confirm that [docker-selenium-grid](https://github.com/hmrc/docker-selenium-grid) is up-to-date and follow the provided [instructions](https://github.com/hmrc/docker-selenium-grid/blob/main/README.md).
-
-
-### Test inspection and debugging
-
-Connect to port `7900` on the Grid browser's local IP address (see `localhost:4444/ui` to view each browser's IP) to 
-inspect and debug test execution in a noVNC window.
-
-
 ## Tests
 
 Run tests as follows:
