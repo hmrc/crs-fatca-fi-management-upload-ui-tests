@@ -16,12 +16,25 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object FiManagementFEDefaultPage extends BasePage {
-  override val pageUrl: String = baseUrl
+import org.openqa.selenium.By
 
-  def checkPage(): Unit          =
+object FiManagementFEDefaultPage extends BasePage {
+
+  override val pageUrl: String = baseUrl
+  val addFILink: By            = By.partialLinkText("add a financial institution")
+  val changeContactLink: By    = By.linkText("Change your contact details")
+
+  def checkPage(): Unit =
     onPage(pageUrl)
-  //TODO temporarily added this method in to navigate to first page in the journey that exists - should be removed later
-  def navigateToNamePage(): Unit =
-    navigateTo(FiNamePage.pageUrl)
+
+  def clickAddFILink(): Unit = {
+    onPage(pageUrl)
+    clickOnById(addFILink)
+  }
+
+  def clickChangeContactLink(): Unit = {
+    onPage(pageUrl)
+    clickOnById(changeContactLink)
+  }
+
 }

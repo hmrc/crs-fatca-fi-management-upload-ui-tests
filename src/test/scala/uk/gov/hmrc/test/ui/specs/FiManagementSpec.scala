@@ -28,7 +28,7 @@ class FiManagementSpec extends BaseSpec {
       AuthLoginPage.loginAsBasic()
       When("The user hits the landing page and continues standard journey")
       FiManagementFEDefaultPage.checkPage()
-      FiManagementFEDefaultPage.navigateToNamePage()
+      FiManagementFEDefaultPage.clickAddFILink()
       FiNamePage.enterFiName()
       FiHaveUtrPage.fiHhaveUtrYes()
       FiUtrPage.enterFiUtr()
