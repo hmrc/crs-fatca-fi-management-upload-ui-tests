@@ -21,17 +21,15 @@ import org.openqa.selenium.support.ui.Select
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
-import uk.gov.hmrc.domain._
+import uk.gov.hmrc.test.ui.utils.IdGenerators
 
-trait BasePage extends BrowserDriver with Matchers {
+trait BasePage extends BrowserDriver with Matchers with IdGenerators {
 
   case class PageNotFoundException(message: String) extends Exception(message)
 
   val pageUrl: String
-  val baseUrl: String        = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
-  val submitButtonId: By     = By.id("submit")
-  val randomisedNino: String = new Generator().nextNino.toString()
-  val randomisedUtr: String  = new SaUtrGenerator().nextSaUtr.toString()
+  val baseUrl: String    = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
+  val submitButtonId: By = By.id("submit")
 
   def navigateTo(url: String): Unit =
     driver.navigate().to(url)

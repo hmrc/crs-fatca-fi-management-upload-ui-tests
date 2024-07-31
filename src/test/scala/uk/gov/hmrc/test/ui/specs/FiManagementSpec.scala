@@ -32,7 +32,6 @@ class FiManagementSpec extends BaseSpec {
       FiNamePage.enterFiName()
       FiHaveUtrPage.fiHhaveUtrYes()
       FiUtrPage.enterFiUtr()
-      FiFatcaReportsPage.fiFatcaReportsNo()
       FiHaveGiinPage.fiHaveGiinYes()
       FiGiinPage.enterGiin()
       FiWhereIsFiBased.basedUKYes()
@@ -49,6 +48,22 @@ class FiManagementSpec extends BaseSpec {
       FiSecondContactPhonePage.enterFiSecondContactPhone()
       Then("The user completes journey and lands on check your answer page")
       FiCheckYourAnswersPage.checkPage()
+      //TODO check your answer page is not developed yet
+    }
+
+    Scenario("Add Fi Journey where Fi is user", FiManagementTests, ZapTests) {
+      Given("The user logs in as Auto Matched user")
+      AuthLoginPage.loginAsAutoMatchedUser()
+      When("The user hits the landing page and continues standard journey")
+      FiManagementFEDefaultPage.checkPage()
+      FiManagementFEDefaultPage.clickAddFILink()
+      FiReportForRegisteredBusinessPage.fiAddYourBusiness()
+      FiIsThisYourBusinessNamePage.fiConfirmBusinessName()
+      FiHaveGiinPage.fiHaveGiinYes()
+      FiGiinPage.enterGiin()
+      FiIsTheAddressCorrectPage.fiConfirmRegisteredBusinessAddress()
+      Then("The user completes journey and lands on check your answer page")
+      FiRegisteredBusinessCheckYourAnswersPage.checkPage()
       //TODO check your answer page is not developed yet
     }
   }

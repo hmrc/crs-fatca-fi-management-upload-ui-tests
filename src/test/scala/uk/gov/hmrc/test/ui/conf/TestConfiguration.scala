@@ -29,7 +29,8 @@ object TestConfiguration {
     val identifier = envConfig.getString("enrolment.identifier")
 
     EnrolmentConfig(
-      individual = Enrolment(key, identifier, envConfig.getString("enrolment.individualId"))
+      individual = Enrolment(key, identifier, envConfig.getString("enrolment.individualId")),
+      autoMatchedUser = Enrolment(key, identifier, envConfig.getString("enrolment.autoMatchedUserId"))
     )
   }
 

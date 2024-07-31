@@ -28,10 +28,16 @@ object AuthLoginPage extends BasePage {
   private val affinityGroupById: By  = By.id("affinityGroupSelect")
   private val authSubmitById: By     = By.id("submit-top")
 
-  private val enrolment: Enrolment        = TestConfiguration.enrolmentConfig.individual
-  private val enrolmentKeyById: By        = By.id("enrolment[0].name")
-  private val enrolmentIdentifierById: By = By.id("input-0-0-name")
-  private val enrolmentValueById: By      = By.id("input-0-0-value")
+  private val enrolment: Enrolment                = TestConfiguration.enrolmentConfig.individual
+  private val autoMatchedUserEnrolment: Enrolment = TestConfiguration.enrolmentConfig.autoMatchedUser
+  private val enrolmentKeyById: By                = By.id("enrolment[0].name")
+  private val enrolmentIdentifierById: By         = By.id("input-0-0-name")
+  private val enrolmentValueById: By              = By.id("input-0-0-value")
+
+  private val presetDropDownById: By    = By.id("presets-dropdown")
+  private val presetSubmitById: By      = By.id("add-preset")
+  private val identifierCTField: By     = By.id("input-4-0-value")
+  private val identifierCTValue: String = generateUtr(validCtUtr)
 
   def loadPage(): this.type = {
     navigateTo(pageUrl)
@@ -42,12 +48,29 @@ object AuthLoginPage extends BasePage {
   def selectAffinityGroup(affinityGroup: String): Unit =
     selectDropdownById(affinityGroupById).selectByVisibleText(affinityGroup)
 
+  private def addCtPreset(): Unit = {
+    selectDropdownById(presetDropDownById).selectByVisibleText("CT")
+    clickOnById(presetSubmitById)
+    sendTextById(identifierCTField, identifierCTValue)
+  }
+
   def loginAsBasic(): FiManagementFEDefaultPage.type = {
     loadPage()
     sendTextById(redirectionUrlById, redirectUrl)
     sendTextById(enrolmentKeyById, enrolment.key)
     sendTextById(enrolmentIdentifierById, enrolment.identifier)
     sendTextById(enrolmentValueById, enrolment.value)
+    clickOnById(authSubmitById)
+    FiManagementFEDefaultPage
+  }
+
+  def loginAsAutoMatchedUser(): FiManagementFEDefaultPage.type = {
+    loadPage()
+    sendTextById(redirectionUrlById, redirectUrl)
+    sendTextById(enrolmentKeyById, autoMatchedUserEnrolment.key)
+    sendTextById(enrolmentIdentifierById, autoMatchedUserEnrolment.identifier)
+    sendTextById(enrolmentValueById, autoMatchedUserEnrolment.value)
+    addCtPreset()
     clickOnById(authSubmitById)
     FiManagementFEDefaultPage
   }

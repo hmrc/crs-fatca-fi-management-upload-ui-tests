@@ -14,15 +14,24 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.conf
+package uk.gov.hmrc.test.ui.utils
 
-case class EnrolmentConfig(
-  individual: Enrolment,
-  autoMatchedUser: Enrolment
-)
+import uk.gov.hmrc.domain.{Generator, SaUtrGenerator}
 
-case class Enrolment(
-  key: String,
-  identifier: String,
-  value: String
-)
+trait IdGenerators {
+
+  val randomisedNino: String = new Generator().nextNino.toString()
+  val randomisedUtr: String  = new SaUtrGenerator().nextSaUtr.toString()
+
+  //prefixes
+  val validCtUtr: String     = "333"
+  val preRegUtr: String      = "222"
+  val individualNino: String = "AA1"
+
+  def generateUtr(prefix: String): String =
+    prefix + randomisedUtr.substring(3)
+
+  def generateNino(prefix: String): String =
+    prefix + randomisedNino.substring(3)
+
+}
