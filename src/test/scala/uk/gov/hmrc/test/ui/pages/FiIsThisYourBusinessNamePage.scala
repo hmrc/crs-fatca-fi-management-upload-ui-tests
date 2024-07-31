@@ -21,12 +21,10 @@ import org.openqa.selenium.By
 object FiIsThisYourBusinessNamePage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/registered-business/is-this-your-business-name"
-  val haveUtrYesId: By         = By.id("value")
-  val haveUtrNoId: By          = By.id("value-no")
 
   def fiConfirmBusinessName(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveUtrYesId)
+    clickOnById(yesRadioButtonId)
     submitPageById()
   }
 }

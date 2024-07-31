@@ -28,8 +28,10 @@ trait BasePage extends BrowserDriver with Matchers with IdGenerators {
   case class PageNotFoundException(message: String) extends Exception(message)
 
   val pageUrl: String
-  val baseUrl: String    = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
-  val submitButtonId: By = By.id("submit")
+  val baseUrl: String      = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
+  val submitButtonId: By   = By.id("submit")
+  val yesRadioButtonId: By = By.id("value")
+  val noRadioButtonId: By  = By.id("value-no")
 
   def navigateTo(url: String): Unit =
     driver.navigate().to(url)

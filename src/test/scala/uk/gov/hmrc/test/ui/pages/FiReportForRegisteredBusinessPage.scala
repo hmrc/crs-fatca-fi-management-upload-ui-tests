@@ -21,12 +21,10 @@ import org.openqa.selenium.By
 object FiReportForRegisteredBusinessPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/report-for-registered-business"
-  val haveUtrYesId: By         = By.id("value")
-  val haveUtrNoId: By          = By.id("value-no")
 
   def fiAddYourBusiness(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveUtrYesId)
+    clickOnById(yesRadioButtonId)
     submitPageById()
   }
 }
