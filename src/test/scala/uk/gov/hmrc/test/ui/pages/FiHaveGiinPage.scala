@@ -24,8 +24,9 @@ object FiHaveGiinPage extends BasePage {
   val haveGiinYesId: By        = By.id("value")
   val haveGiinNoId: By         = By.id("value-no")
 
-  def checkPage(): Unit =
+  def checkPage(): Unit = {
     onPage(pageUrl)
+  }
 
   def fiHaveGiinYes(): Unit = {
     onPage(pageUrl)
