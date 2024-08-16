@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-
 object FiIsTheAddressCorrectPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/registered-business/is-the-address-correct"
