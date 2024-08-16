@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-
 object FiReportForRegisteredBusinessPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/report-for-registered-business"

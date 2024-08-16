@@ -48,7 +48,7 @@ class FiManagementSpec extends BaseSpec {
       FiSecondContactPhonePage.enterFiSecondContactPhone()
       Then("The user completes journey and lands on check your answer page")
       FiCheckYourAnswersPage.checkPage()
-      //TODO check your answer page is not developed yet
+      //TODO confirmation page is not developed yet - DAC6-3046
     }
 
     Scenario("Add Fi Journey where Fi is user", FiManagementTests, ZapTests) {
@@ -64,7 +64,7 @@ class FiManagementSpec extends BaseSpec {
       FiIsTheAddressCorrectPage.fiConfirmRegisteredBusinessAddress()
       Then("The user completes journey and lands on check your answer page")
       FiRegisteredBusinessCheckYourAnswersPage.checkPage()
-      //TODO check your answer page is not developed yet
+      //TODO confirmation page is not developed yet - DAC6-3046
     }
   }
 }
