@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 object FiFinancialInstitutionAddedPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "financial-institution-added"
+  override val pageUrl: String = baseUrl + "/financial-institution-added"
 
   def checkPage(): Unit =
     onPage(pageUrl)

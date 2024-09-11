@@ -64,6 +64,7 @@ class FiManagementSpec extends BaseSpec {
       FiIsTheAddressCorrectPage.fiConfirmRegisteredBusinessAddress()
       Then("The user completes journey and lands on check your answer page")
       FiRegisteredBusinessCheckYourAnswersPage.confirmAndSend()
+      FiFinancialInstitutionAddedPage.checkPage()
     }
   }
 }
