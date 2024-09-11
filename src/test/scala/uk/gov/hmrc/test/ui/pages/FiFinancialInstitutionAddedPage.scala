@@ -16,12 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object FiRegisteredBusinessCheckYourAnswersPage extends BasePage {
+object FiFinancialInstitutionAddedPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/registered-business/check-answers"
-  def confirmAndSend(): Unit = {
+  override val pageUrl: String = baseUrl + "financial-institution-added"
+
+  def checkPage(): Unit =
     onPage(pageUrl)
-    submitPageById()
-  }
-
 }

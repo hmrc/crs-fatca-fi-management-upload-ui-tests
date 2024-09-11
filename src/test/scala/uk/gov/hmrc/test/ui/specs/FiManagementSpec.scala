@@ -63,8 +63,7 @@ class FiManagementSpec extends BaseSpec {
       FiGiinPage.enterGiin()
       FiIsTheAddressCorrectPage.fiConfirmRegisteredBusinessAddress()
       Then("The user completes journey and lands on check your answer page")
-      FiRegisteredBusinessCheckYourAnswersPage.checkPage()
-      //TODO confirmation page is not developed yet - DAC6-3046
+      FiRegisteredBusinessCheckYourAnswersPage.confirmAndSend()
     }
   }
 }
