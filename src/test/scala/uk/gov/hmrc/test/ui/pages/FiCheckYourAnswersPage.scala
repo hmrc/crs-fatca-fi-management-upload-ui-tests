@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 object FiCheckYourAnswersPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/check-your-answers"
+  override val pageUrl: String = baseUrl + "/check-answers"
 
   def checkPage(): Unit =
     onPage(pageUrl)
