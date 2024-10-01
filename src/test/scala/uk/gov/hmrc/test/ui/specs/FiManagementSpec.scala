@@ -47,8 +47,8 @@ class FiManagementSpec extends BaseSpec {
       FiSecondContactHavePhonePage.fiSecondContactHavePhoneYes()
       FiSecondContactPhonePage.enterFiSecondContactPhone()
       Then("The user completes journey and lands on check your answer page")
-      FiCheckYourAnswersPage.checkPage()
-      //TODO confirmation page is not developed yet - DAC6-3046
+      FiCheckYourAnswersPage.confirmAndSend()
+      FiFinancialInstitutionAddedPage.checkPage()
     }
 
     Scenario("Add Fi Journey where Fi is user", FiManagementTests, ZapTests) {
