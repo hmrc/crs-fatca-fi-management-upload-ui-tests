@@ -20,7 +20,9 @@ object FiCheckYourAnswersPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/check-answers"
 
-  def checkPage(): Unit =
+  def confirmAndSend(): Unit = {
     onPage(pageUrl)
+    submitPageById()
+  }
 
 }
