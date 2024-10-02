@@ -21,7 +21,7 @@ import org.openqa.selenium.By
 object FiManagementFEDefaultPage extends BasePage {
 
   override val pageUrl: String = baseUrl
-  val addFILink: By            = By.partialLinkText("add a financial institution")
+  val addFILink: By            = By.id("add-financial-institution")
   val changeContactLink: By    = By.linkText("Change your contact details")
 
   def checkPage(): Unit =
