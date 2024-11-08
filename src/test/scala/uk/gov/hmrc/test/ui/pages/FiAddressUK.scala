@@ -36,9 +36,6 @@ object FiAddressUK extends BasePage {
     sendTextById(city, "Edinburgh")
     sendTextById(county, "Midlothian")
     sendTextById(postCode, "EH14 1TT")
-    driver.findElement(country).click()
-    driver.findElement(country).sendKeys("Jersey")
-    driver.findElement(countryOption).click()
     submitPageById()
   }
 }
