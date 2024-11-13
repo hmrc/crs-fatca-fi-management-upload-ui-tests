@@ -67,6 +67,7 @@ object AuthLoginPage extends BasePage {
   def loginAsAutoMatchedUser(): FiManagementFEDefaultPage.type = {
     loadPage()
     sendTextById(redirectionUrlById, redirectUrl)
+    selectAffinityGroup("Organisation")
     sendTextById(enrolmentKeyById, autoMatchedUserEnrolment.key)
     sendTextById(enrolmentIdentifierById, autoMatchedUserEnrolment.identifier)
     sendTextById(enrolmentValueById, autoMatchedUserEnrolment.value)
