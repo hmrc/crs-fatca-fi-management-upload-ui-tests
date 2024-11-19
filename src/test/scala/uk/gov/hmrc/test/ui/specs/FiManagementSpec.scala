@@ -34,7 +34,6 @@ class FiManagementSpec extends BaseSpec {
       FiUtrPage.enterFiUtr()
       FiHaveGiinPage.fiHaveGiinYes()
       FiGiinPage.enterGiin()
-      FiWhereIsFiBased.basedUKYes()
       FiUKPostcode.clickOnManualAddressLink()
       FiAddressUK.enterAddressManually()
       FiContactNamePage.enterFiContactName()
