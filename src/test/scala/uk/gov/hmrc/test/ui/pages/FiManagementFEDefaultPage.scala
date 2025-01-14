@@ -24,6 +24,7 @@ object FiManagementFEDefaultPage extends BasePage {
   val addFILink: By            = By.id("add-financial-institution")
   val changeContactLink: By    = By.linkText("Change your contact details")
   val changeContactLinkOrg: By = By.linkText("Change the contact details for CRS and FATCA Company")
+  val manageYourFinancialInstitutionsId: By = By.id("your-financial-institutions")
   def checkPage(): Unit        =
     onPage(pageUrl)
 
@@ -42,4 +43,8 @@ object FiManagementFEDefaultPage extends BasePage {
     clickOnById(changeContactLinkOrg)
   }
 
+  def clickManageYourFinancialInstitutions(): Unit = {
+    onPage(pageUrl)
+    clickOnById(manageYourFinancialInstitutionsId)
+  }
 }
