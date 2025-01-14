@@ -18,6 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.Select
+import org.scalatest.Assertion
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
@@ -28,10 +29,12 @@ trait BasePage extends BrowserDriver with Matchers with IdGenerators {
   case class PageNotFoundException(message: String) extends Exception(message)
 
   val pageUrl: String
-  val baseUrl: String      = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
-  val submitButtonId: By   = By.id("submit")
-  val yesRadioButtonId: By = By.id("value")
-  val noRadioButtonId: By  = By.id("value-no")
+  val baseUrl: String              = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
+  val changeContactBaseUrl: String = TestConfiguration.url("crs-fatca-registration-frontend") + ""
+  val submitButtonId: By           = By.id("submit")
+  val yesRadioButtonId: By         = By.id("value")
+  val noRadioButtonId: By          = By.id("value-no")
+  val headerTagName: By            = By.tagName("h1")
 
   def navigateTo(url: String): Unit =
     driver.navigate().to(url)
@@ -52,6 +55,12 @@ trait BasePage extends BrowserDriver with Matchers with IdGenerators {
   def clickOnById(id: By): Unit =
     driver.findElement(id).click()
 
+  def clickOnByXpath(xpath: By): Unit =
+    driver.findElement(xpath).click()
+
   def submitPageById(): Unit =
     driver.findElement(submitButtonId).click()
+
+  def checkH1(h1: String): Assertion =
+    driver.findElement(headerTagName).getText should include(h1)
 }

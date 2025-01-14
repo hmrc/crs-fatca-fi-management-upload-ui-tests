@@ -23,8 +23,8 @@ object FiManagementFEDefaultPage extends BasePage {
   override val pageUrl: String = baseUrl
   val addFILink: By            = By.id("add-financial-institution")
   val changeContactLink: By    = By.linkText("Change your contact details")
-
-  def checkPage(): Unit =
+  val changeContactLinkOrg: By = By.linkText("Change the contact details for CRS and FATCA Company")
+  def checkPage(): Unit        =
     onPage(pageUrl)
 
   def clickAddFILink(): Unit = {
@@ -35,6 +35,11 @@ object FiManagementFEDefaultPage extends BasePage {
   def clickChangeContactLink(): Unit = {
     onPage(pageUrl)
     clickOnById(changeContactLink)
+  }
+
+  def clickChangeContactLinkForOrganisation(): Unit = {
+    onPage(pageUrl)
+    clickOnById(changeContactLinkOrg)
   }
 
 }
