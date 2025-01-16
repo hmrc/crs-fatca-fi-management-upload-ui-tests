@@ -22,18 +22,17 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 object FiChangeContactIndividualDetailsPage extends BasePage {
 
   override val pageUrl: String = changeContactBaseUrl + "/change-contact/individual/details"
-  val changeEmailLink: By = By.xpath("//a[@class='govuk-link' and contains (@href,'change-email')]")
+  val changeEmailLink: By      = By.xpath("//a[@class='govuk-link' and contains (@href,'change-email')]")
 
-  def checkPage(): Unit = {
+  def checkPage(): Unit =
     onPage(pageUrl)
-  }
 
   def clickOnEmailChangeLink(): Unit = {
     onPage(pageUrl)
     clickOnByXpath(changeEmailLink)
   }
 
-  def checkPageHeader(h1:String): Unit = {
+  def checkPageHeader(h1: String): Unit = {
     onPage(pageUrl)
     checkH1(h1)
   }

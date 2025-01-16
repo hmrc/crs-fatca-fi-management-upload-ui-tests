@@ -22,7 +22,7 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 object FiChangeHavePhoneOrganisationPage extends BasePage {
 
   override val pageUrl: String = changeContactBaseUrl + "/change-contact/organisation/change-have-phone"
-  val havePhoneNoId: By = By.id("value-no")
+  val havePhoneNoId: By        = By.id("value-no")
 
   def fiChangeHavePhoneNo(): Unit = {
     onPage(pageUrl)
