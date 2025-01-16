@@ -24,4 +24,9 @@ object FiChangeContactDetailsUpdatedPage extends BasePage {
 
   def checkPage(): Unit =
     onPage(pageUrl)
+
+  def checkPageHeader(h1: String): Unit = {
+    onPage(pageUrl)
+    checkH1(h1)
+  }
 }

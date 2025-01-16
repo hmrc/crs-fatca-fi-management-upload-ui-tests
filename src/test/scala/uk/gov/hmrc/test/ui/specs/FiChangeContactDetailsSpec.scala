@@ -38,6 +38,7 @@ class FiChangeContactDetailsSpec extends BaseSpec {
       FiChangeContactIndividualDetailsPage.checkPageHeader(h1 = "Check your contact details")
       FiChangeContactIndividualDetailsPage.confirmAndSend()
       FiChangeContactDetailsUpdatedPage.checkPage()
+      FiChangeContactDetailsUpdatedPage.checkPageHeader("Contact details updated")
     }
 
     Scenario("Change contact details (Organisation)", FiManagementTests, ZapTests) {
@@ -57,6 +58,7 @@ class FiChangeContactDetailsSpec extends BaseSpec {
       FiChangeContactOrganisationDetailsPage.checkPageHeader(h1 = "Check your contact details for your organisation")
       FiChangeContactOrganisationDetailsPage.confirmAndSend()
       FiChangeContactDetailsUpdatedPage.checkPage()
+      FiChangeContactDetailsUpdatedPage.checkPageHeader("Contact details updated")
     }
   }
 }
