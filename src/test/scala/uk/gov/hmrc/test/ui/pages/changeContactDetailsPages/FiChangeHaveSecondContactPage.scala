@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object FiChangeHaveSecondContactPage extends BasePage {
 
-  override val pageUrl: String = changeContactBaseUrl + "/change-contact/organisation/change-have-second-contact"
+  override val pageUrl: String  = changeContactBaseUrl + "/change-contact/organisation/change-have-second-contact"
   val haveSecondContactNoId: By = By.id("value-no")
 
   def fiHaveSecondContactNo(): Unit = {

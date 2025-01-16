@@ -20,12 +20,12 @@ import org.openqa.selenium.By
 
 object FiManagementFEDefaultPage extends BasePage {
 
-  override val pageUrl: String = baseUrl
-  val addFILink: By            = By.id("add-financial-institution")
-  val changeContactLink: By    = By.linkText("Change your contact details")
-  val changeContactLinkOrg: By = By.linkText("Change the contact details for CRS and FATCA Company")
+  override val pageUrl: String              = baseUrl
+  val addFILink: By                         = By.id("add-financial-institution")
+  val changeContactLink: By                 = By.linkText("Change your contact details")
+  val changeContactLinkOrg: By              = By.linkText("Change the contact details for CRS and FATCA Company")
   val manageYourFinancialInstitutionsId: By = By.id("your-financial-institutions")
-  def checkPage(): Unit        =
+  def checkPage(): Unit                     =
     onPage(pageUrl)
 
   def clickAddFILink(): Unit = {

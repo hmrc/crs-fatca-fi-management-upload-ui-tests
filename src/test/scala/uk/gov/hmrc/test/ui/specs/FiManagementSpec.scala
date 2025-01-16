@@ -48,6 +48,7 @@ class FiManagementSpec extends BaseSpec {
       Then("The user completes journey and lands on check your answer page")
       FiCheckYourAnswersPage.confirmAndSend()
       FiFinancialInstitutionAddedPage.checkPage()
+      FiFinancialInstitutionAddedPage.checkPageHeader("Financial institution added")
     }
 
     Scenario("Add Fi Journey where Fi is user", FiManagementTests, ZapTests) {
@@ -64,6 +65,7 @@ class FiManagementSpec extends BaseSpec {
       Then("The user completes journey and lands on check your answer page")
       FiRegisteredBusinessCheckYourAnswersPage.confirmAndSend()
       FiFinancialInstitutionAddedPage.checkPage()
+      FiFinancialInstitutionAddedPage.checkPageHeader("Financial institution added")
     }
   }
 }

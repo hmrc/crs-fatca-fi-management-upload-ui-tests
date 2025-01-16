@@ -21,14 +21,14 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object FiChangeContactOrganisationDetailsPage extends BasePage {
 
-  override val pageUrl: String = changeContactBaseUrl + "/change-contact/organisation/details"
-  val changeEmailLink: By = By.xpath("//a[@class='govuk-link' and contains (@href,'change-email')]")
-  val changeFirstContactNameLink: By = By.xpath("//a[@class='govuk-link' and contains (@href,'change-contact-name')]")
-  val changeSecondContactNameLink: By = By.xpath("//a[@class='govuk-link' and contains (@href,'change-have-second-contact')]")
+  override val pageUrl: String        = changeContactBaseUrl + "/change-contact/organisation/details"
+  val changeEmailLink: By             = By.xpath("//a[@class='govuk-link' and contains (@href,'change-email')]")
+  val changeFirstContactNameLink: By  = By.xpath("//a[@class='govuk-link' and contains (@href,'change-contact-name')]")
+  val changeSecondContactNameLink: By =
+    By.xpath("//a[@class='govuk-link' and contains (@href,'change-have-second-contact')]")
 
-  def checkPage(): Unit = {
+  def checkPage(): Unit =
     onPage(pageUrl)
-  }
 
   def clickOnFirstContactNameChangeLink(): Unit = {
     onPage(pageUrl)
@@ -40,7 +40,7 @@ object FiChangeContactOrganisationDetailsPage extends BasePage {
     clickOnByXpath(changeSecondContactNameLink)
   }
 
-  def checkPageHeader(h1:String): Unit = {
+  def checkPageHeader(h1: String): Unit = {
     onPage(pageUrl)
     checkH1(h1)
   }
