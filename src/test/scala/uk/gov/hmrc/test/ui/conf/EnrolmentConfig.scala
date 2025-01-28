@@ -18,7 +18,8 @@ package uk.gov.hmrc.test.ui.conf
 
 case class EnrolmentConfig(
   individual: Enrolment,
-  autoMatchedUser: Enrolment
+  autoMatchedUser: Enrolment,
+  organisationUser: Enrolment
 )
 
 case class Enrolment(

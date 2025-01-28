@@ -30,6 +30,7 @@ object AuthLoginPage extends BasePage {
 
   private val enrolment: Enrolment                = TestConfiguration.enrolmentConfig.individual
   private val autoMatchedUserEnrolment: Enrolment = TestConfiguration.enrolmentConfig.autoMatchedUser
+  private val organisationEnrolment: Enrolment    = TestConfiguration.enrolmentConfig.organisationUser
   private val enrolmentKeyById: By                = By.id("enrolment[0].name")
   private val enrolmentIdentifierById: By         = By.id("input-0-0-name")
   private val enrolmentValueById: By              = By.id("input-0-0-value")
@@ -60,6 +61,18 @@ object AuthLoginPage extends BasePage {
     sendTextById(enrolmentKeyById, enrolment.key)
     sendTextById(enrolmentIdentifierById, enrolment.identifier)
     sendTextById(enrolmentValueById, enrolment.value)
+    clickOnById(authSubmitById)
+    FiManagementFEDefaultPage
+  }
+
+  def loginAsOrganisationUser(): FiManagementFEDefaultPage.type = {
+    loadPage()
+    sendTextById(redirectionUrlById, redirectUrl)
+    selectAffinityGroup("Organisation")
+    sendTextById(enrolmentKeyById, organisationEnrolment.key)
+    sendTextById(enrolmentIdentifierById, organisationEnrolment.identifier)
+    sendTextById(enrolmentValueById, organisationEnrolment.value)
+    addCtPreset()
     clickOnById(authSubmitById)
     FiManagementFEDefaultPage
   }

@@ -30,7 +30,8 @@ object TestConfiguration {
 
     EnrolmentConfig(
       individual = Enrolment(key, identifier, envConfig.getString("enrolment.individualId")),
-      autoMatchedUser = Enrolment(key, identifier, envConfig.getString("enrolment.autoMatchedUserId"))
+      autoMatchedUser = Enrolment(key, identifier, envConfig.getString("enrolment.autoMatchedUserId")),
+      organisationUser = Enrolment(key, identifier, envConfig.getString("enrolment.organisationId"))
     )
   }
 

@@ -23,7 +23,7 @@ import scala.util.Random
 object FiCrnPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/crn"
-  def randomCrn = s"${(Random.alphanumeric take 8).mkString}"
+  def randomCrn                = s"${(Random.alphanumeric take 8).mkString}"
 
   val FiUtrID: By = By.id("value")
 

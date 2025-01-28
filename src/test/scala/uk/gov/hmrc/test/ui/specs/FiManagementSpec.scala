@@ -54,7 +54,7 @@ class FiManagementSpec extends BaseSpec {
 
     Scenario("Add Fi Journey where Fi is user", FiManagementTests, ZapTests) {
       Given("The user logs in as Auto Matched user")
-      AuthLoginPage.loginAsAutoMatchedUser()
+      AuthLoginPage.loginAsOrganisationUser()
       When("The user hits the landing page and continues standard journey")
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.clickAddFILink()
