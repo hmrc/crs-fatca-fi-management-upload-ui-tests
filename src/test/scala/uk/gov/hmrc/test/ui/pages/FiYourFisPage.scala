@@ -21,7 +21,7 @@ import org.openqa.selenium.By
 object FiYourFisPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/your-fis"
-  val firstFiRemoveLink: By    = By.xpath("//a[@class='govuk-link' and contains (@href,'remove-fi/683373339')]")
+  val firstFiRemoveLink: By    = By.xpath("//a[@class='govuk-link' and contains (@href,'/remove/user-access/683373339')]")
 
   def checkPage(): Unit =
     onPage(pageUrl)

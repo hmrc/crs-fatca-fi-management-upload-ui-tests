@@ -18,13 +18,13 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object FiRemoveFirstFiPage extends BasePage {
+object FiRemoveUserAccessFirstFiPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/remove/remove-fi"
-  def checkPage(): Unit =
+  override val pageUrl: String = baseUrl + "/remove/user-access/683373339"
+  def checkPage(): Unit        =
     onPage(pageUrl)
 
-  def areYouSureToRemoveFirstFIYes(): Unit = {
+  def willAnyoneNeedsToAccessReportsYes(): Unit = {
     onPage(pageUrl)
     clickOnById(yesRadioButtonId)
     submitPageById()

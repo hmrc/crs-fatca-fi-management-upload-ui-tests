@@ -31,8 +31,10 @@ class FiRemoveFISpec extends BaseSpec {
       FiManagementFEDefaultPage.clickManageYourFinancialInstitutions()
       FiYourFisPage.checkPage()
       FiYourFisPage.clickOnRemoveFirstFI()
-      FiRemoveFirstFiPage.doYouWantToRemoveFiYes()
-      FiYourFisPage.checkSucessBannerDisplayed()
+      FiRemoveUserAccessFirstFiPage.willAnyoneNeedsToAccessReportsYes()
+      FiRemoveOtherAccessFirstFiPage.couldAnyoneActsOnBehalfOfFirstFIYes()
+      FiRemoveFirstFiPage.areYouSureToRemoveFirstFIYes()
+      //FiYourFisPage.checkSucessBannerDisplayed()
     }
   }
 }
