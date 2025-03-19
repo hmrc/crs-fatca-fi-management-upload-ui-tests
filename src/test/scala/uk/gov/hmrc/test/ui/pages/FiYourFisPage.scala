@@ -31,7 +31,7 @@ object FiYourFisPage extends BasePage {
     clickOnById(firstFiRemoveLink)
   }
 
-  def checkSucessBannerDisplayed(): Unit = {
+  def checkSuccessBannerDisplayed(): Unit = {
     onPage(pageUrl)
     checkBanner()
   }

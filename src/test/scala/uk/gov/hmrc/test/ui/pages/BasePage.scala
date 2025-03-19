@@ -36,6 +36,7 @@ trait BasePage extends BrowserDriver with Matchers with IdGenerators {
   val noRadioButtonId: By           = By.id("value-no")
   val headerTagName: By             = By.tagName("h1")
   val bannerTitleID: By             = By.id("govuk-notification-banner-title")
+  val bannerSuccessID: By           = By.cssSelector(".govuk-panel__title")
   def navigateTo(url: String): Unit =
     driver.navigate().to(url)
 
@@ -66,4 +67,10 @@ trait BasePage extends BrowserDriver with Matchers with IdGenerators {
 
   def checkBanner(): Unit =
     driver.findElement(bannerTitleID).isDisplayed
+
+  def checkBannerText(): String = {
+    val bannerElement = driver.findElement(bannerSuccessID)
+    val bannerText    = bannerElement.getText
+    bannerText
+  }
 }

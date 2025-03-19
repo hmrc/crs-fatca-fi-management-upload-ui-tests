@@ -34,7 +34,8 @@ class FiRemoveFISpec extends BaseSpec {
       FiRemoveUserAccessFirstFiPage.willAnyoneNeedsToAccessReportsYes()
       FiRemoveOtherAccessFirstFiPage.couldAnyoneActsOnBehalfOfFirstFIYes()
       FiRemoveFirstFiPage.areYouSureToRemoveFirstFIYes()
-      //FiYourFisPage.checkSucessBannerDisplayed()
+      Then("The user should see the 'FI removed' message")
+      FiRemoveSuccessFirstFiPage.checkSuccessBannerDisplayed()
     }
   }
 }

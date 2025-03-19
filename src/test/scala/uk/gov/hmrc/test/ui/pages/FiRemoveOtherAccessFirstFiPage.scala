@@ -16,12 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object FiRemoveOtherAccessFirstFiPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/remove/other-access/683373339"
-  def checkPage(): Unit =
+  def checkPage(): Unit        =
     onPage(pageUrl)
 
   def couldAnyoneActsOnBehalfOfFirstFIYes(): Unit = {

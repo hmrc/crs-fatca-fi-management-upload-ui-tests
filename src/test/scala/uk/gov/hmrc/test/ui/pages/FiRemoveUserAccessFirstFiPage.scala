@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object FiRemoveUserAccessFirstFiPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/remove/user-access/683373339"
