@@ -16,15 +16,16 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object FiRemoveFirstFiPage extends BasePage {
+object FiRemoveSuccessFirstFiPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/remove/remove-fi"
-  def checkPage(): Unit        =
+  override val pageUrl: String = baseUrl + "/remove/fi-removed"
+
+  def checkPage(): Unit =
     onPage(pageUrl)
 
-  def areYouSureToRemoveFirstFIYes(): Unit = {
+  def checkSuccessBannerDisplayed(): Unit = {
     onPage(pageUrl)
-    clickOnById(yesRadioButtonId)
-    submitPageById()
+    val bannerText = checkBannerText()
+    assert(bannerText == "First FI removed", s"Expected 'First FI removed' but got '$bannerText'")
   }
 }
