@@ -27,7 +27,7 @@ object FiChangeReportRegisteredBusinessPage extends BasePage {
     checkH1(h1)
   }
 
-  def changeReportRegisteredBusiness() : Unit = {
+  def changeReportRegisteredBusiness(): Unit = {
     onPage(pageUrl)
     clickOnById(noRadioButtonId)
     submitPageById()

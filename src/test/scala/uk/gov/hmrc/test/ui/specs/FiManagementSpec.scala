@@ -70,14 +70,14 @@ class FiManagementSpec extends BaseSpec {
       FiFinancialInstitutionAddedPage.checkPageHeader("Financial institution added")
     }
 
-    Scenario("Change Registered Business Status to No", FiManagementTests, ZapTests, Wip) {
+    Scenario("Change Registered Business Status to No", FiManagementTests, ZapTests) {
       Given("The user logs in as Organisation CT user")
       AuthLoginPage.loginAsAutoMatchedUser()
       When("The user hits the landing page and continues the  journey")
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.clickManageYourFinancialInstitutions()
       FiYourFisPage.checkAndUpdateRegisteredBusinessStatus()
-      And ("The user click on to Change link to change the registered business to standard FI journey ")
+//      And ("The user click on to Change link to change the registered business to standard FI journey ")
       FiRegisteredBusinessChangeAnswersPage.changeFiRegisteredBusiness()
       FiChangeReportRegisteredBusinessPage.changeReportRegisteredBusiness()
       FiNamePage.enterFiName()

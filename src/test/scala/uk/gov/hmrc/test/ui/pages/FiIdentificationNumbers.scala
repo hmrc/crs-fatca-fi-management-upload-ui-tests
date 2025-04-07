@@ -50,7 +50,7 @@ object FiIdentificationNumbers extends BasePage {
     submitPageById()
   }
 
-  def clickContinue(): Unit ={
+  def clickContinue(): Unit = {
     onPage(pageUrl)
     submitPageById()
   }
