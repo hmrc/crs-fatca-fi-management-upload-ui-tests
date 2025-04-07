@@ -18,40 +18,22 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object FiIdentificationNumbers extends BasePage {
+object FiUrnPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/identification-numbers"
-  val selectUTR: By            = By.id("value_0")
-  val selectCRN: By            = By.id("value_1")
+  override val pageUrl: String = baseUrl + "/trust-urn"
   val selectURN: By            = By.id("value_2")
 
-  def selectUTRYes(): Unit = {
-    onPage(pageUrl)
-    clickOnById(selectUTR)
-    submitPageById()
-  }
+  val FiUrnID: By = By.id("value")
 
-  def selectCRNYes(): Unit = {
+  def enterFiUrn(): Unit = {
     onPage(pageUrl)
-    clickOnById(selectCRN)
-    submitPageById()
-  }
-
-  def selectUTRandCRNYes(): Unit = {
-    onPage(pageUrl)
-    clickOnById(selectUTR)
-    clickOnById(selectCRN)
+    sendTextById(FiUrnID, "ABTRUST12345678")
     submitPageById()
   }
 
   def selectURNYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(selectURN)
-    submitPageById()
-  }
-
-  def clickContinue(): Unit ={
-    onPage(pageUrl)
+    clickOnById(By.id("value_2"))
     submitPageById()
   }
 }

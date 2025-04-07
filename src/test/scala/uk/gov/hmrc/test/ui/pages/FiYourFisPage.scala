@@ -22,6 +22,8 @@ object FiYourFisPage extends BasePage {
 
   override val pageUrl: String = baseUrl + "/your-fis"
   val firstFiRemoveLink: By    = By.xpath("//a[@class='govuk-link' and contains (@href,'/remove/user-access/683373339')]")
+  val registeredBusinessTag: By = By.cssSelector("strong[class='govuk-tag']")
+  val changeRegisteredBusinessLink: By   = By.cssSelector("div:nth-child(1) > dd:nth-child(3) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)")
 
   def checkPage(): Unit =
     onPage(pageUrl)
@@ -35,4 +37,14 @@ object FiYourFisPage extends BasePage {
     onPage(pageUrl)
     checkBanner()
   }
+
+  def checkAndUpdateRegisteredBusinessStatus(): Unit = {
+    onPage(pageUrl)
+    if (driver.findElements(registeredBusinessTag).size() > 0) {
+      clickOnById(changeRegisteredBusinessLink)
+    } else {
+      throw new IllegalStateException("No Registered Business exists for the FI user. Cannot proceed with changes.")
+    }
+  }
+
 }
