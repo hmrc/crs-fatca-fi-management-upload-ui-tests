@@ -17,6 +17,7 @@
 package uk.gov.hmrc.test.ui.specs
 
 import uk.gov.hmrc.test.ui.pages._
+import uk.gov.hmrc.test.ui.pages.changeRegisteredBusinessPages._
 import uk.gov.hmrc.test.ui.specs.tags._
 
 class FiManagementSpec extends BaseSpec {
@@ -67,6 +68,36 @@ class FiManagementSpec extends BaseSpec {
       FiRegisteredBusinessCheckYourAnswersPage.confirmAndSend()
       FiFinancialInstitutionAddedPage.checkPage()
       FiFinancialInstitutionAddedPage.checkPageHeader("Financial institution added")
+    }
+
+    Scenario("Change Registered Business Status to No", FiManagementTests, ZapTests) {
+      Given("The user logs in as Organisation CT user")
+      AuthLoginPage.loginAsAutoMatchedUser()
+      When("The user hits the landing page and continues the  journey")
+      FiManagementFEDefaultPage.checkPage()
+      FiManagementFEDefaultPage.clickManageYourFinancialInstitutions()
+      FiYourFisPage.checkAndUpdateRegisteredBusinessStatus()
+      And("The user click on to Change link to change the registered business to standard FI journey ")
+      FiRegisteredBusinessChangeAnswersPage.changeFiRegisteredBusiness()
+      FiChangeReportRegisteredBusinessPage.changeReportRegisteredBusiness()
+      FiNamePage.enterFiName()
+      FiIdentificationNumbers.clickContinue()
+      FiUtrPage.enterFiUtr()
+      FiHaveGiinPage.fiHaveGiinYes()
+      FiGiinPage.enterGiin()
+      FiUKPostcode.clickOnManualAddressLink()
+      FiAddressUK.enterAddressManually()
+      FiContactNamePage.enterFiContactName()
+      FiEmailPage.enterFiEmailAddress()
+      FiHavePhonePage.fiHavePhoneYes()
+      FiPhonePage.enterFiPhone()
+      FiHaveSecondContactPage.fiHaveSecondContactYes()
+      FiSecondContactNamePage.enterFiSecondContactName()
+      FiSecondContactEmailPage.enterFiSecondContactEmailAddress()
+      FiSecondContactHavePhonePage.fiSecondContactHavePhoneYes()
+      FiSecondContactPhonePage.enterFiSecondContactPhone()
+      Then("The user completes journey and lands on check your answer page")
+      FiChangeAnswersPage.confirmAndSend()
     }
   }
 }
