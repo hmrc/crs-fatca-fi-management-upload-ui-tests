@@ -77,7 +77,7 @@ class FiManagementSpec extends BaseSpec {
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.clickManageYourFinancialInstitutions()
       FiYourFisPage.checkAndUpdateRegisteredBusinessStatus()
-//      And ("The user click on to Change link to change the registered business to standard FI journey ")
+      And("The user click on to Change link to change the registered business to standard FI journey ")
       FiRegisteredBusinessChangeAnswersPage.changeFiRegisteredBusiness()
       FiChangeReportRegisteredBusinessPage.changeReportRegisteredBusiness()
       FiNamePage.enterFiName()
