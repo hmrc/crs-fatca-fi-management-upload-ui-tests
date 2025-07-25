@@ -24,7 +24,7 @@ object FiYourFisPage extends BasePage {
   val firstFiRemoveLink: By            = By.xpath("//a[@class='govuk-link' and contains (@href,'/remove/user-access/683373339')]")
   val registeredBusinessTag: By        = By.cssSelector("strong[class='govuk-tag']")
   val changeRegisteredBusinessLink: By = By.cssSelector(
-    "div:nth-child(1) > dd:nth-child(3) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)"
+    "div:nth-child(1) > dd:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)"
   )
 
   def checkPage(): Unit =
