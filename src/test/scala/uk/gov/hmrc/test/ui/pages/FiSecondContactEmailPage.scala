@@ -26,7 +26,7 @@ object FiSecondContactEmailPage extends BasePage {
 
   def enterFiSecondContactEmailAddress(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiSecondContactEmailID, "testsecondcontact@example.com")
-    submitPageById()
+    sendKeys(FiSecondContactEmailID, "testsecondcontact@example.com")
+    click(submitButtonId)
   }
 }

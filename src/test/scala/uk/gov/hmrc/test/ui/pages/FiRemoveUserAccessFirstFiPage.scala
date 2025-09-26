@@ -24,7 +24,7 @@ object FiRemoveUserAccessFirstFiPage extends BasePage {
 
   def willAnyoneNeedsToAccessReportsYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(yesRadioButtonId)
-    submitPageById()
+    click(yesRadioButtonId)
+    click(submitButtonId)
   }
 }

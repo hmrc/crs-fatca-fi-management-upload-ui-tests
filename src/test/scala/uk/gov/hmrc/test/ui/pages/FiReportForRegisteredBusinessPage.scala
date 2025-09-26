@@ -22,7 +22,7 @@ object FiReportForRegisteredBusinessPage extends BasePage {
 
   def fiAddYourBusiness(): Unit = {
     onPage(pageUrl)
-    clickOnById(yesRadioButtonId)
-    submitPageById()
+    click(yesRadioButtonId)
+    click(submitButtonId)
   }
 }

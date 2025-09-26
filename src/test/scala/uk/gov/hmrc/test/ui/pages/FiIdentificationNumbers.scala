@@ -27,31 +27,31 @@ object FiIdentificationNumbers extends BasePage {
 
   def selectUTRYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(selectUTR)
-    submitPageById()
+    click(selectUTR)
+    click(submitButtonId)
   }
 
   def selectCRNYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(selectCRN)
-    submitPageById()
+    click(selectCRN)
+    click(submitButtonId)
   }
 
   def selectUTRandCRNYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(selectUTR)
-    clickOnById(selectCRN)
-    submitPageById()
+    click(selectUTR)
+    click(selectCRN)
+    click(submitButtonId)
   }
 
   def selectURNYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(selectURN)
-    submitPageById()
+    click(selectURN)
+    click(submitButtonId)
   }
 
   def clickContinue(): Unit = {
     onPage(pageUrl)
-    submitPageById()
+    click(submitButtonId)
   }
 }

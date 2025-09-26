@@ -27,13 +27,13 @@ object FiUrnPage extends BasePage {
 
   def enterFiUrn(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiUrnID, "ABTRUST12345678")
-    submitPageById()
+    sendKeys(FiUrnID, "ABTRUST12345678")
+    click(submitButtonId)
   }
 
   def selectURNYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(By.id("value_2"))
-    submitPageById()
+    click(By.id("value_2"))
+    click(submitButtonId)
   }
 }

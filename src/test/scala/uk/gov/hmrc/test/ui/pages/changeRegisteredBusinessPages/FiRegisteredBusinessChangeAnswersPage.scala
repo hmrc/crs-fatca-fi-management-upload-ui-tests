@@ -27,7 +27,7 @@ object FiRegisteredBusinessChangeAnswersPage extends BasePage {
 
   def changeFiRegisteredBusiness(): Unit = {
     onPage(pageUrl)
-    clickOnById(changeFiRegisteredBusinessLink)
+    click(changeFiRegisteredBusinessLink)
   }
 
 }

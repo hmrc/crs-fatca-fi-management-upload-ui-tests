@@ -16,57 +16,42 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.Select
+import org.openqa.selenium.{By, WebDriver}
+import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.scalatest.Assertion
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
+import uk.gov.hmrc.selenium.component.PageObject
+import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 import uk.gov.hmrc.test.ui.utils.IdGenerators
+import java.time.Duration
 
-trait BasePage extends BrowserDriver with Matchers with IdGenerators {
+trait BasePage extends BrowserDriver with Matchers with PageObject with IdGenerators {
 
   case class PageNotFoundException(message: String) extends Exception(message)
 
   val pageUrl: String
-  val baseUrl: String               = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
-  val changeContactBaseUrl: String  = TestConfiguration.url("crs-fatca-registration-frontend") + ""
-  val submitButtonId: By            = By.id("submit")
-  val yesRadioButtonId: By          = By.id("value")
-  val noRadioButtonId: By           = By.id("value-no")
-  val headerTagName: By             = By.tagName("h1")
-  val bannerTitleID: By             = By.id("govuk-notification-banner-title")
-  val bannerSuccessID: By           = By.cssSelector(".govuk-panel__title")
-  def navigateTo(url: String): Unit =
-    driver.navigate().to(url)
+  val baseUrl: String              = TestConfiguration.url("crs-fatca-fi-management-frontend") + ""
+  val changeContactBaseUrl: String = TestConfiguration.url("crs-fatca-registration-frontend") + ""
+  val submitButtonId: By           = By.id("submit")
+  val yesRadioButtonId: By         = By.id("value")
+  val noRadioButtonId: By          = By.id("value-no")
+  val headerTagName: By            = By.tagName("h1")
+  val bannerTitleID: By            = By.id("govuk-notification-banner-title")
+  val bannerSuccessID: By          = By.cssSelector(".govuk-panel__title")
 
-  def onPage(url: String): Unit =
-    if (driver.getCurrentUrl != url)
-      throw PageNotFoundException(
-        s"Expected '$url' page, but found '${driver.getCurrentUrl}' page."
-      )
+  private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
+    .withTimeout(Duration.ofSeconds(2))
+    .pollingEvery(Duration.ofMillis(200))
 
-  def sendTextById(id: By, textToEnter: String): Unit = {
-    driver.findElement(id).clear()
-    driver.findElement(id).sendKeys(textToEnter)
-  }
-
-  def selectDropdownById(id: By): Select = new Select(driver.findElement(id: By))
-
-  def clickOnById(id: By): Unit =
-    driver.findElement(id).click()
+  def onPage(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
 
   def clickOnByXpath(xpath: By): Unit =
     driver.findElement(xpath).click()
 
-  def submitPageById(): Unit =
-    driver.findElement(submitButtonId).click()
-
   def checkH1(h1: String): Assertion =
     driver.findElement(headerTagName).getText should include(h1)
-
-  def checkBanner(): Unit =
-    driver.findElement(bannerTitleID).isDisplayed
 
   def checkBannerText(): String = {
     val bannerElement = driver.findElement(bannerSuccessID)

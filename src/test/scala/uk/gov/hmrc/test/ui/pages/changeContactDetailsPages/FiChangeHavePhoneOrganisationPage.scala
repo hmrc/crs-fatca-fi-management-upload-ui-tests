@@ -26,7 +26,7 @@ object FiChangeHavePhoneOrganisationPage extends BasePage {
 
   def fiChangeHavePhoneNo(): Unit = {
     onPage(pageUrl)
-    clickOnById(havePhoneNoId)
-    submitPageById()
+    click(havePhoneNoId)
+    click(submitButtonId)
   }
 }

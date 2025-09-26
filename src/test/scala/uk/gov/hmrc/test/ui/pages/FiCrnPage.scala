@@ -29,7 +29,7 @@ object FiCrnPage extends BasePage {
 
   def enterFiCrn(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiUtrID, randomCrn)
-    submitPageById()
+    sendKeys(FiUtrID, randomCrn)
+    click(submitButtonId)
   }
 }

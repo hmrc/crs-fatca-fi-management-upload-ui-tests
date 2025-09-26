@@ -31,11 +31,11 @@ object FiAddressUK extends BasePage {
 
   def enterAddressManually(): Unit = {
     onPage(pageUrl)
-    sendTextById(addressLine1, "addressLine1")
-    sendTextById(addressLine2, "addressLine2")
-    sendTextById(city, "Edinburgh")
-    sendTextById(county, "Midlothian")
-    sendTextById(postCode, "EH14 1TT")
-    submitPageById()
+    sendKeys(addressLine1, "addressLine1")
+    sendKeys(addressLine2, "addressLine2")
+    sendKeys(city, "Edinburgh")
+    sendKeys(county, "Midlothian")
+    sendKeys(postCode, "EH14 1TT")
+    click(submitButtonId)
   }
 }

@@ -21,7 +21,7 @@ object FiRegisteredBusinessCheckYourAnswersPage extends BasePage {
   override val pageUrl: String = baseUrl + "/registered-business/check-answers"
   def confirmAndSend(): Unit = {
     onPage(pageUrl)
-    submitPageById()
+    click(submitButtonId)
   }
 
 }

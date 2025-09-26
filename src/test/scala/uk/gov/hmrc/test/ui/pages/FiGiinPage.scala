@@ -26,8 +26,8 @@ object FiGiinPage extends BasePage {
 
   def enterGiin(): Unit = {
     onPage(pageUrl)
-    sendTextById(giin, "98096B.00000.LE.350")
-    submitPageById()
+    sendKeys(giin, "98096B.00000.LE.350")
+    click(submitButtonId)
   }
 
 }

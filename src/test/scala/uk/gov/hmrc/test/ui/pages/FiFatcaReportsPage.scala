@@ -26,13 +26,13 @@ object FiFatcaReportsPage extends BasePage {
 
   def fiFatcaReportsYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveUtrYesId)
-    submitPageById()
+    click(haveUtrYesId)
+    click(submitButtonId)
   }
 
   def fiFatcaReportsNo(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveUtrNoId)
-    submitPageById()
+    click(haveUtrNoId)
+    click(submitButtonId)
   }
 }

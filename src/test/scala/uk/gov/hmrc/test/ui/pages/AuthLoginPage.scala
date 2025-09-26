@@ -41,51 +41,50 @@ object AuthLoginPage extends BasePage {
   private val identifierCTValue: String = generateUtr(validCtUtr)
 
   def loadPage(): this.type = {
-    navigateTo(pageUrl)
+    get(pageUrl)
     onPage(pageUrl)
     this
   }
 
-  def selectAffinityGroup(affinityGroup: String): Unit =
-    selectDropdownById(affinityGroupById).selectByVisibleText(affinityGroup)
+  def selectAffinityGroup(affinityGroup: String): Unit = selectByVisibleText(affinityGroupById, affinityGroup)
 
   private def addCtPreset(): Unit = {
-    selectDropdownById(presetDropDownById).selectByVisibleText("CT")
-    clickOnById(presetSubmitById)
-    sendTextById(identifierCTField, identifierCTValue)
+    selectByVisibleText(presetDropDownById, "CT")
+    click(presetSubmitById)
+    sendKeys(identifierCTField, identifierCTValue)
   }
 
   def loginAsBasic(): FiManagementFEDefaultPage.type = {
     loadPage()
-    sendTextById(redirectionUrlById, redirectUrl)
-    sendTextById(enrolmentKeyById, enrolment.key)
-    sendTextById(enrolmentIdentifierById, enrolment.identifier)
-    sendTextById(enrolmentValueById, enrolment.value)
-    clickOnById(authSubmitById)
+    sendKeys(redirectionUrlById, redirectUrl)
+    sendKeys(enrolmentKeyById, enrolment.key)
+    sendKeys(enrolmentIdentifierById, enrolment.identifier)
+    sendKeys(enrolmentValueById, enrolment.value)
+    click(authSubmitById)
     FiManagementFEDefaultPage
   }
 
   def loginAsOrganisationUser(): FiManagementFEDefaultPage.type = {
     loadPage()
-    sendTextById(redirectionUrlById, redirectUrl)
+    sendKeys(redirectionUrlById, redirectUrl)
     selectAffinityGroup("Organisation")
-    sendTextById(enrolmentKeyById, organisationEnrolment.key)
-    sendTextById(enrolmentIdentifierById, organisationEnrolment.identifier)
-    sendTextById(enrolmentValueById, organisationEnrolment.value)
+    sendKeys(enrolmentKeyById, organisationEnrolment.key)
+    sendKeys(enrolmentIdentifierById, organisationEnrolment.identifier)
+    sendKeys(enrolmentValueById, organisationEnrolment.value)
     addCtPreset()
-    clickOnById(authSubmitById)
+    click(authSubmitById)
     FiManagementFEDefaultPage
   }
 
   def loginAsAutoMatchedUser(): FiManagementFEDefaultPage.type = {
     loadPage()
-    sendTextById(redirectionUrlById, redirectUrl)
+    sendKeys(redirectionUrlById, redirectUrl)
     selectAffinityGroup("Organisation")
-    sendTextById(enrolmentKeyById, autoMatchedUserEnrolment.key)
-    sendTextById(enrolmentIdentifierById, autoMatchedUserEnrolment.identifier)
-    sendTextById(enrolmentValueById, autoMatchedUserEnrolment.value)
+    sendKeys(enrolmentKeyById, autoMatchedUserEnrolment.key)
+    sendKeys(enrolmentIdentifierById, autoMatchedUserEnrolment.identifier)
+    sendKeys(enrolmentValueById, autoMatchedUserEnrolment.value)
     addCtPreset()
-    clickOnById(authSubmitById)
+    click(authSubmitById)
     FiManagementFEDefaultPage
   }
 }

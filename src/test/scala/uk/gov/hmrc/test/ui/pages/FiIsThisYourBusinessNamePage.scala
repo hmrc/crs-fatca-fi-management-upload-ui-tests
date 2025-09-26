@@ -22,7 +22,7 @@ object FiIsThisYourBusinessNamePage extends BasePage {
 
   def fiConfirmBusinessName(): Unit = {
     onPage(pageUrl)
-    clickOnById(yesRadioButtonId)
-    submitPageById()
+    click(yesRadioButtonId)
+    click(submitButtonId)
   }
 }
