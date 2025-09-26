@@ -25,7 +25,7 @@ object FiHaveSecondContactPage extends BasePage {
 
   def fiHaveSecondContactYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveSecondContactYesId)
-    submitPageById()
+    click(haveSecondContactYesId)
+    click(submitButtonId)
   }
 }

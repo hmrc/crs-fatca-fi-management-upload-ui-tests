@@ -29,7 +29,7 @@ object FiChangeReportRegisteredBusinessPage extends BasePage {
 
   def changeReportRegisteredBusiness(): Unit = {
     onPage(pageUrl)
-    clickOnById(noRadioButtonId)
-    submitPageById()
+    click(noRadioButtonId)
+    click(submitButtonId)
   }
 }

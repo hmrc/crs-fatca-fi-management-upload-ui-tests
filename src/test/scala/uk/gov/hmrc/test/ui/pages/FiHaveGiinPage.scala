@@ -29,13 +29,13 @@ object FiHaveGiinPage extends BasePage {
 
   def fiHaveGiinYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveGiinYesId)
-    submitPageById()
+    click(haveGiinYesId)
+    click(submitButtonId)
   }
 
   def fiHaveGiinNo(): Unit = {
     onPage(pageUrl)
-    clickOnById(haveGiinNoId)
-    submitPageById()
+    click(haveGiinNoId)
+    click(submitButtonId)
   }
 }

@@ -27,7 +27,7 @@ object FiChangeEmailOrganisationPage extends BasePage {
 
   def changeFiEmailAddress(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiEmailID, "testupdated@example.com")
-    submitPageById()
+    sendKeys(FiEmailID, "testupdated@example.com")
+    click(submitButtonId)
   }
 }

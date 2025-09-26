@@ -30,21 +30,21 @@ object FiManagementFEDefaultPage extends BasePage {
 
   def clickAddFILink(): Unit = {
     onPage(pageUrl)
-    clickOnById(addFILink)
+    click(addFILink)
   }
 
   def clickChangeContactLink(): Unit = {
     onPage(pageUrl)
-    clickOnById(changeContactLink)
+    click(changeContactLink)
   }
 
   def clickChangeContactLinkForOrganisation(): Unit = {
     onPage(pageUrl)
-    clickOnById(changeContactLinkOrg)
+    click(changeContactLinkOrg)
   }
 
   def clickManageYourFinancialInstitutions(): Unit = {
     onPage(pageUrl)
-    clickOnById(manageYourFinancialInstitutionsId)
+    click(manageYourFinancialInstitutionsId)
   }
 }

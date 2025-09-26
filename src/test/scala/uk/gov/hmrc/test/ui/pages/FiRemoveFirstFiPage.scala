@@ -24,7 +24,7 @@ object FiRemoveFirstFiPage extends BasePage {
 
   def areYouSureToRemoveFirstFIYes(): Unit = {
     onPage(pageUrl)
-    clickOnById(yesRadioButtonId)
-    submitPageById()
+    click(yesRadioButtonId)
+    click(submitButtonId)
   }
 }

@@ -26,7 +26,7 @@ object FiPhonePage extends BasePage {
 
   def enterFiPhone(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiPhoneID, "01642 123456")
-    submitPageById()
+    sendKeys(FiPhoneID, "01642 123456")
+    click(submitButtonId)
   }
 }

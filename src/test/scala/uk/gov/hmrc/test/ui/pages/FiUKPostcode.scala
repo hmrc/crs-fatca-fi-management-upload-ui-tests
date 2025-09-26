@@ -28,6 +28,6 @@ object FiUKPostcode extends BasePage {
 
   def clickOnManualAddressLink(): Unit = {
     onPage(pageUrl)
-    clickOnById(manualAddressLink)
+    click(manualAddressLink)
   }
 }

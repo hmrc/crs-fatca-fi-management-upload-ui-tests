@@ -24,6 +24,6 @@ object FiChangeAnswersPage extends BasePage {
 
   def confirmAndSend(): Unit = {
     onPage(pageUrl)
-    submitPageById()
+    click(submitButtonId)
   }
 }

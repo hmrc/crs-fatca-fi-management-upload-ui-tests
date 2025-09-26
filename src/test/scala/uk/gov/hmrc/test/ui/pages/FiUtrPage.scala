@@ -26,7 +26,7 @@ object FiUtrPage extends BasePage {
 
   def enterFiUtr(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiUtrID, randomisedUtr)
-    submitPageById()
+    sendKeys(FiUtrID, randomisedUtr)
+    click(submitButtonId)
   }
 }

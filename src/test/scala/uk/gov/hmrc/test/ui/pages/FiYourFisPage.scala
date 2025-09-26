@@ -32,18 +32,18 @@ object FiYourFisPage extends BasePage {
 
   def clickOnRemoveFirstFI(): Unit = {
     onPage(pageUrl)
-    clickOnById(firstFiRemoveLink)
+    click(firstFiRemoveLink)
   }
 
-  def checkSuccessBannerDisplayed(): Unit = {
-    onPage(pageUrl)
-    checkBanner()
-  }
+//  def checkSuccessBannerDisplayed(): Unit = {
+//    onPage(pageUrl)
+//    checkBanner()
+//  }
 
   def checkAndUpdateRegisteredBusinessStatus(): Unit = {
     onPage(pageUrl)
     if (driver.findElements(registeredBusinessTag).size() > 0) {
-      clickOnById(changeRegisteredBusinessLink)
+      click(changeRegisteredBusinessLink)
     } else {
       throw new IllegalStateException("No Registered Business exists for the FI user. Cannot proceed with changes.")
     }

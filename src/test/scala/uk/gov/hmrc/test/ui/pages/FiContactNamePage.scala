@@ -26,7 +26,7 @@ object FiContactNamePage extends BasePage {
 
   def enterFiContactName(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiContactNameID, "Fi Contact Name")
-    submitPageById()
+    sendKeys(FiContactNameID, "Fi Contact Name")
+    click(submitButtonId)
   }
 }

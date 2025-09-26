@@ -27,7 +27,7 @@ object FiChangeContactNameOrganisationPage extends BasePage {
 
   def changeFiContactName(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiContactNameID, "Fi Contact Name Update")
-    submitPageById()
+    sendKeys(FiContactNameID, "Fi Contact Name Update")
+    click(submitButtonId)
   }
 }

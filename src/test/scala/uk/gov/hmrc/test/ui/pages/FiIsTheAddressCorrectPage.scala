@@ -22,7 +22,7 @@ object FiIsTheAddressCorrectPage extends BasePage {
 
   def fiConfirmRegisteredBusinessAddress(): Unit = {
     onPage(pageUrl)
-    clickOnById(yesRadioButtonId)
-    submitPageById()
+    click(yesRadioButtonId)
+    click(submitButtonId)
   }
 }

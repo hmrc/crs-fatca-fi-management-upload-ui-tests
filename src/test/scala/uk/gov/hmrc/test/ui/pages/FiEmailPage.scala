@@ -26,7 +26,7 @@ object FiEmailPage extends BasePage {
 
   def enterFiEmailAddress(): Unit = {
     onPage(pageUrl)
-    sendTextById(FiEmailID, "test@example.com")
-    submitPageById()
+    sendKeys(FiEmailID, "test@example.com")
+    click(submitButtonId)
   }
 }
