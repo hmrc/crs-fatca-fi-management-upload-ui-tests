@@ -35,11 +35,6 @@ object FiYourFisPage extends BasePage {
     click(firstFiRemoveLink)
   }
 
-//  def checkSuccessBannerDisplayed(): Unit = {
-//    onPage(pageUrl)
-//    checkBanner()
-//  }
-
   def checkAndUpdateRegisteredBusinessStatus(): Unit = {
     onPage(pageUrl)
     if (driver.findElements(registeredBusinessTag).size() > 0) {
