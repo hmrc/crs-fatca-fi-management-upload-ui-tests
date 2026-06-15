@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 object FiRemoveOtherAccessFirstFiPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/remove/other-access/683373339"
+  override val pageUrl: String = baseUrl + "/remove/other-access/TES683373339"
   def checkPage(): Unit        =
     onPage(pageUrl)
 
