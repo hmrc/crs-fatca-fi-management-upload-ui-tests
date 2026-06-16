@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object FiChangeAnswersPage extends BasePage {
 
-  override val pageUrl: String = baseUrl + "/change-answers/683373339"
+  override val pageUrl: String = baseUrl + "/change-answers/TES683373339"
 
   def confirmAndSend(): Unit = {
     onPage(pageUrl)
