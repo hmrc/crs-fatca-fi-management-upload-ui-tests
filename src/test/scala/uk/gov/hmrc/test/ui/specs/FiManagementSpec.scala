@@ -24,16 +24,42 @@ class FiManagementSpec extends BaseSpec {
 
   Feature("Add Fi Journey") {
 
-    Scenario("Add Fi Journey (Standard FI)", FiManagementTests, ZapTests) {
+    Scenario("Add Fi Journey (Standard FI) with Identifier Details", FiManagementTests, ZapTests) {
       Given("The user logs in as an individual")
       AuthLoginPage.loginAsBasic()
       When("The user hits the landing page and continues standard journey")
       FiManagementFEDefaultPage.checkPage()
       FiManagementFEDefaultPage.clickAddFILink()
       FiNamePage.enterFiName()
+      FIHaveIdentificationNumbersPage.selectRadio(true)
       FiIdentificationNumbers.selectUTRandCRNYes()
       FiUtrPage.enterFiUtr()
       FiCrnPage.enterFiCrn()
+      FiHaveGiinPage.fiHaveGiinYes()
+      FiGiinPage.enterGiin()
+      FiUKPostcode.clickOnManualAddressLink()
+      FiAddressUK.enterAddressManually()
+      FiContactNamePage.enterFiContactName()
+      FiEmailPage.enterFiEmailAddress()
+      FiHavePhonePage.fiHavePhoneYes()
+      FiPhonePage.enterFiPhone()
+      FiHaveSecondContactPage.fiHaveSecondContactYes()
+      FiSecondContactNamePage.enterFiSecondContactName()
+      FiSecondContactEmailPage.enterFiSecondContactEmailAddress()
+      FiSecondContactHavePhonePage.fiSecondContactHavePhoneYes()
+      FiSecondContactPhonePage.enterFiSecondContactPhone()
+      Then("The user completes journey and lands on check your answer page")
+      FiCheckYourAnswersPage.confirmAndSend()
+      FiFinancialInstitutionAddedPage.checkPage()
+    }
+    Scenario("Add Fi Journey (Standard FI) without Identifier Details", FiManagementTests, ZapTests) {
+      Given("The user logs in as an individual")
+      AuthLoginPage.loginAsBasic()
+      When("The user hits the landing page and continues standard journey")
+      FiManagementFEDefaultPage.checkPage()
+      FiManagementFEDefaultPage.clickAddFILink()
+      FiNamePage.enterFiName()
+      FIHaveIdentificationNumbersPage.selectRadio(false)
       FiHaveGiinPage.fiHaveGiinYes()
       FiGiinPage.enterGiin()
       FiUKPostcode.clickOnManualAddressLink()
