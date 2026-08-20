@@ -105,6 +105,7 @@ class FiManagementSpec extends BaseSpec {
       FiRegisteredBusinessChangeAnswersPage.changeFiRegisteredBusiness()
       FiChangeReportRegisteredBusinessPage.changeReportRegisteredBusiness()
       FiNamePage.enterFiName()
+      FIHaveIdentificationNumbersPage.selectRadio(true)
       FiIdentificationNumbers.clickContinue()
       FiUtrPage.enterFiUtr()
       FiHaveGiinPage.fiHaveGiinYes()
