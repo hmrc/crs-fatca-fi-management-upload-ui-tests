@@ -17,7 +17,7 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.{By, WebDriver}
-import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
+import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait, WebDriverWait}
 import org.scalatest.Assertion
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
@@ -25,6 +25,7 @@ import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.conf.TestConfiguration
 import uk.gov.hmrc.ui.driver.BrowserDriver
 import uk.gov.hmrc.ui.utils.IdGenerators
+
 import java.time.Duration
 
 trait BasePage extends BrowserDriver with Matchers with PageObject with IdGenerators {
@@ -53,8 +54,11 @@ trait BasePage extends BrowserDriver with Matchers with PageObject with IdGenera
   def clickOnByXpath(xpath: By): Unit =
     driver.findElement(xpath).click()
 
-  def checkH1(h1: String): Assertion =
-    driver.findElement(headerTagName).getText should include(h1)
+  def checkH1(h1: String): Assertion = {
+    val wait      = new WebDriverWait(Driver.instance, Duration.ofSeconds(10))
+    val h1Element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
+    h1Element.getText shouldBe h1
+  }
 
   def checkBannerText(): String = {
     val bannerElement = driver.findElement(bannerSuccessID)
