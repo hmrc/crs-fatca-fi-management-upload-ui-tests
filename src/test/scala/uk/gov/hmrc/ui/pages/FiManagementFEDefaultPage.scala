@@ -56,6 +56,7 @@ object FiManagementFEDefaultPage extends BasePage {
   }
 
   def clickViewResultsOfRecentSubmissions(): this.type = {
+    onPage(pageUrl)
     val wait = new WebDriverWait(Driver.instance, Duration.ofSeconds(10))
     val link = wait.until(ExpectedConditions.elementToBeClickable(viewResultsOfRecentSubmissionsLink))
     link.click()

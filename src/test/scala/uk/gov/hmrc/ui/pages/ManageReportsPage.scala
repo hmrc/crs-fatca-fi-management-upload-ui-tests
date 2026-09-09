@@ -17,13 +17,17 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
+import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.utils.DateUtil
+
+import java.time.Duration
 
 object ManageReportsPage extends BasePage with DateUtil {
 
   override val pageUrl: String = baseUrlForManualSubmission + s"/manage-reports-for-$reportingYear?fiId=TES683373304"
 
-  val backLink: By = By.className("govuk-back-link")
+  val backLinkLocator: By = By.className("govuk-back-link")
 
   def checkPage(): this.type = {
     onPage(pageUrl)
@@ -32,7 +36,9 @@ object ManageReportsPage extends BasePage with DateUtil {
   }
 
   def clickBackLink(): this.type = {
-    click(backLink)
+    val wait     = new WebDriverWait(Driver.instance, Duration.ofSeconds(10))
+    val backLink = wait.until(ExpectedConditions.elementToBeClickable(backLinkLocator))
+    backLink.click()
     this
   }
 }

@@ -17,12 +17,16 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
+import uk.gov.hmrc.selenium.webdriver.Driver
+
+import java.time.Duration
 
 object UploadFilePage extends BasePage {
 
   override val pageUrl: String = baseUrlForFileUpload + "/upload-file"
 
-  val backLink: By = By.id("back-link")
+  val backLinkLocator: By = By.id("back-link")
 
   def checkPage(): this.type = {
     onPage(pageUrl)
@@ -31,8 +35,9 @@ object UploadFilePage extends BasePage {
   }
 
   def clickBackLink(): this.type = {
-    onPage(pageUrl)
-    click(backLink)
+    val wait     = new WebDriverWait(Driver.instance, Duration.ofSeconds(10))
+    val backLink = wait.until(ExpectedConditions.elementToBeClickable(backLinkLocator))
+    backLink.click()
     this
   }
 
