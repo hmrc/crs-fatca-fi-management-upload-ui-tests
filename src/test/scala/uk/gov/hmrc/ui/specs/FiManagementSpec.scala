@@ -51,7 +51,6 @@ class FiManagementSpec extends BaseSpec {
       Then("The user completes journey and lands on check your answer page")
       FiCheckYourAnswersPage.confirmAndSend()
       FiFinancialInstitutionAddedPage.checkPage()
-
       When("The user selects Back to manage your financial institutions")
       FiFinancialInstitutionAddedPage.clickBackToManageFinancialInstitutions()
       Then("The user is on the your FIs page")
@@ -81,7 +80,6 @@ class FiManagementSpec extends BaseSpec {
       Then("The user completes journey and lands on check your answer page")
       FiCheckYourAnswersPage.confirmAndSend()
       FiFinancialInstitutionAddedPage.checkPage()
-
       When("The user selects Back to manage your financial institutions")
       FiFinancialInstitutionAddedPage.clickBackToManageReports()
       Then("The user is on the your FIs page")
@@ -102,7 +100,6 @@ class FiManagementSpec extends BaseSpec {
       Then("The user completes journey and lands on check your answer page")
       FiRegisteredBusinessCheckYourAnswersPage.confirmAndSend()
       FiFinancialInstitutionAddedPage.checkPage()
-
       When("The user selects Back to manage your financial institutions")
       FiFinancialInstitutionAddedPage.clickBackToManageFinancialInstitutions()
       Then("The user is on the your FIs page")
@@ -140,7 +137,6 @@ class FiManagementSpec extends BaseSpec {
       Then("The user completes journey and lands on check your answer page")
       FiChangeAnswersPage.confirmAndSend()
       DetailsUpdatedPage.checkPage()
-
       When("The user selects Back to manage your CRS and FATCA Reports")
       DetailsUpdatedPage.clickBackToManageReports()
       Then("The user is on the your FIs page")
