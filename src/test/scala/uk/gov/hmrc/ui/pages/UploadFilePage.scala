@@ -17,28 +17,22 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
-import uk.gov.hmrc.selenium.webdriver.Driver
-
-import java.time.Duration
 
 object UploadFilePage extends BasePage {
 
   override val pageUrl: String = baseUrlForFileUpload + "/upload-file"
 
-  val backLinkLocator: By = By.id("back-link")
+  val backLink: By = By.id("back-link")
 
   def checkPage(): this.type = {
     onPage(pageUrl)
-//    checkH1("Upload an XML file for CRS or FATCA")
+    checkH1("Upload an XML file for CRS or FATCA")
     this
   }
 
   def clickBackLink(): this.type = {
-    val wait     = new WebDriverWait(Driver.instance, Duration.ofSeconds(10))
-    val backLink = wait.until(ExpectedConditions.elementToBeClickable(backLinkLocator))
-    backLink.click()
+    onPage(pageUrl)
+    click(backLink)
     this
   }
-
 }
