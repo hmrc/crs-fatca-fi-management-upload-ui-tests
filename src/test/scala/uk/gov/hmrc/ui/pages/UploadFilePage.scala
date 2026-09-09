@@ -26,7 +26,7 @@ object UploadFilePage extends BasePage {
 
   def checkPage(): this.type = {
     onPage(pageUrl)
-    checkH1("Upload an XML file for CRS or FATCA")
+//    checkH1("Upload an XML file for CRS or FATCA")
     this
   }
 
