@@ -35,5 +35,4 @@ object UploadFilePage extends BasePage {
     click(backLink)
     this
   }
-
 }

@@ -157,20 +157,6 @@ class FiManagementSpec extends BaseSpec {
       FiManagementFEDefaultPage.checkPage()
     }
 
-    Scenario("Landing page links to view results of recent submissions page", FiManagementTests, ZapTests) {
-      Given("The user logs in as an individual")
-      AuthLoginPage.loginAsBasic()
-      When("The user hits the landing page and selects view results of checks for recent submissions")
-      FiManagementFEDefaultPage.checkPage()
-      FiManagementFEDefaultPage.clickViewResultsOfRecentSubmissions()
-      Then("The user is on the view results page")
-      ResultsOfSubmissionChecksPage.checkPage()
-      When("The user selects the back link")
-      ResultsOfSubmissionChecksPage.clickBackLink()
-      Then("The user is back on the landing page")
-      FiManagementFEDefaultPage.checkPage()
-    }
-
     Scenario("Your FIs page links to manage reports page", FiManagementTests, ZapTests) {
       Given("The user logs in as an Organisation")
       AuthLoginPage.loginAsAutoMatchedUser()

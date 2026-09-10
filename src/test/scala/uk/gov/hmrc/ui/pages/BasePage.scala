@@ -25,6 +25,7 @@ import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.conf.TestConfiguration
 import uk.gov.hmrc.ui.driver.BrowserDriver
 import uk.gov.hmrc.ui.utils.IdGenerators
+
 import java.time.Duration
 
 trait BasePage extends BrowserDriver with Matchers with PageObject with IdGenerators {

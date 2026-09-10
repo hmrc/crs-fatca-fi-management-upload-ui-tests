@@ -17,6 +17,10 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
+import uk.gov.hmrc.selenium.webdriver.Driver
+
+import java.time.Duration
 
 object FiManagementFEDefaultPage extends BasePage {
 
@@ -53,7 +57,9 @@ object FiManagementFEDefaultPage extends BasePage {
 
   def clickViewResultsOfRecentSubmissions(): this.type = {
     onPage(pageUrl)
-    click(viewResultsOfRecentSubmissionsLink)
+    val wait = new WebDriverWait(Driver.instance, Duration.ofSeconds(10))
+    val link = wait.until(ExpectedConditions.elementToBeClickable(viewResultsOfRecentSubmissionsLink))
+    link.click()
     this
   }
 
